@@ -1,0 +1,674 @@
+body{
+    zoom:1;
+}
+
+i{
+  color:white;
+}
+
+html, body{
+    width:100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    font-family: 'Noto Sans', 'Helvetica', sans-serif;
+    background: #fff;
+}
+
+#map {
+ height: 100%;
+ z-index: 1;
+}
+
+#markerPopup{
+  position: fixed;
+  top:800px;
+  left: 0;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: white;
+  display: none;
+}
+
+.header{
+  /*position: fixed;*/
+  top:0;
+  left: 0;
+  font-size: 20px;
+  width: 100%;
+  padding: 30px 15px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.header h1, #header_addoredit h1{
+    width:80%;
+    margin: 0;
+    font-weight: normal;
+    font-size: 18px;
+    float:left;
+    color:white;
+    padding: 0;
+    line-height: .9;
+    text-align: center;
+}
+
+#footer{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    z-index: 1;
+}
+
+#content{
+    width: 100%;
+    height: 100%;
+}
+
+#overlap{
+    height: 60px;
+}
+
+#scrap_area{
+    width: 100%;
+    height: 100%;
+    color:#fefefe;
+    padding:10px;
+    display: inline-block;
+}
+
+#add_media{
+   display: block;
+}
+
+.btn_select{
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    left:30px;
+    bottom:30px;
+    width:50px;
+    height: 50px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.box{
+    width:200px;
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    right: 0;
+    margin-bottom: -20px;
+}
+
+.btn_selectbig{
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    bottom:30px;
+    width:60px;
+    height: 60px;
+    border-radius: 60px;
+    background: #ee735c;
+    text-align: center;
+    x-index:2;
+}
+
+.textArea{
+    color:black;
+    float:left;
+    width:50%;
+}
+
+#inputFile{
+    cursor: pointer;
+    width:50px !important;
+    height: 50px !important;
+    border-radius: 40px !important;
+    background: #f1efd3;
+    text-align: center;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    margin-top:-30px;
+}
+
+#image{
+	margin: 20px;
+    /*width: 120px;
+    height: 120px;*/
+    background-size: 100%;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-color: #ccc;
+}
+
+#mapholder{
+    float: left;
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    overflow: hidden;
+    background-position: center;
+}
+
+.details_photo{
+    width: 160px;
+    height: 160px;
+}
+
+.btn_selectbig span{
+	margin-top:20px;
+	color:white;
+}
+
+.btn_select span{
+	margin-top:15px;
+}
+
+#login_area, #trip_area, #entry_area, #details_area, #compose_area{
+	left:0;
+	width:100%;
+    min-height: 100%;
+    position: relative;
+    background: #fff;
+}
+
+#entry_area, #details_area{
+    background: #fff;
+}
+
+input{
+    -webkit-appearance: none;
+}
+
+#entry_area, #details_area, #addoredit_trip_area, #trip_area{
+    display: none;
+}
+
+#login_area{
+    background-image: url(../images/balloon.svg);
+    background-size: cover;
+}
+
+#login_area{ z-index:10;}
+#trip_area{ z-index:9;   overflow: hidden;}
+#entry_area{z-index:8;}
+#compose_area{z-index:5;}
+#details_area{z-index:1;}
+
+#login_container, #trip_container, #entry_container{
+	width: 100%;
+    box-sizing: border-box;
+}
+
+#entry_container{
+    display: inline-block;
+    padding-top: 1px;
+}
+
+#trip_container{
+}
+
+#newtrip{
+    margin-bottom: 20px;
+}
+
+#trip, #entry{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#details_container{
+    width:90%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:20px;
+}
+
+
+#login_container{
+
+  padding: 10px 0 10px 40px;
+  background-color: rgba(255,255,255,.8);
+}
+
+.place{
+	padding-left: 20px;
+}
+
+#newentry, #newtrip{
+  background: #fff;
+  width: 100%;
+  min-height: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+  z-index: 30;
+}
+
+#newtrip{
+    height: 800px;
+}
+
+#newentry{
+    display: none;
+    top:800px;
+}
+
+ul{
+    padding: 0;
+}
+
+.timeline-element{
+    position: relative;
+    margin: 2em 0;
+    min-height: 130px;
+}
+
+.timeline-image{
+  height: 300px;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.timeline-content{
+    background: white;
+    color:black;
+}
+
+.timeline-content i{
+    margin-right: 10px;
+    color:black;
+}
+
+.entry-title, .addtrip-title{
+  font-size: 17px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #ee735c;
+  margin: 0;
+}
+.addtrip-title{
+    float: left;
+}
+.entry-title{
+    font-size: 21px;
+}
+
+.author_n_date{
+    display: inline-block;
+    width: 100%;
+    margin-top:0;
+}
+
+.author{
+    color:#777;
+    font-size: 12px;
+    float: left;
+}
+
+.date{
+    color:#777;
+    font-size: 12px;
+}
+
+li{
+ list-style: none;
+ cursor: pointer;
+}
+
+#entry_back, #details_back, #navicon{
+    float:left;
+    color: white;
+    width: 10%;
+}
+
+#trip_edit, #trip_filter{
+  float: right;
+  color: white;
+}
+
+#trip_filter{
+      margin-right: 20PX;
+}
+
+#header_addoredit{
+  width: 100%;
+  background-image: url(../images/new_trip.png);
+  padding: 10px;
+  color: white;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 200px;
+}
+
+#existing_entries{
+    margin: 0;
+}
+
+#existing_entries li{
+}
+
+.eP5qHOwGGdb{
+    width:45%;
+    margin-left: 0;
+}
+
+.eTj8VJdjVVR{
+   float: right;
+    width: 45%;
+}
+
+/*slider code for trip carrousel*/
+.swiper-container {
+    width: 90%;
+    height: 600px;
+}
+
+#trips_slider{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide{
+  padding: 10px;
+  margin: auto;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+#logout{
+    float: left;
+    width:10%;
+    text-align: center;
+}
+
+/*my entries layout*/
+
+
+/*marker popup*/
+#user_info{
+  width: 100%;
+  display: inline-block;
+}
+#user_image{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  float: left;
+}
+#user_text{
+  float:left;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*\marker popup*/
+
+.tile{
+	width:100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+    background-size: cover;
+}
+
+.tile_padding {
+  width: 50%;
+  height: 200px;
+  float: left;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.tile_clicked{
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  background: white;
+  left: 0;
+  z-index: 2;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.tile_bar{
+    color:#fff;
+    display: none;
+    width: 100%;
+    text-align: right;
+    float:right;
+}
+
+.dummy{
+    background:#80a5bf;
+    color: white;
+}
+
+.dummy h1{
+  position: relative;
+  top: 50%;
+  text-align: center;
+  margin: auto;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  font-weight:100;
+}
+
+.overlay, #VirTrip{
+    position: absolute;
+    z-index: 10;
+    top:800px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.btn_selectbig i{
+    margin-top: 40%;
+}
+
+
+.btn_selectbig_extra{
+    height: 400px;
+    width: 400px;
+    right: -150px;
+    bottom: -150px;
+    border-radius: 200px;
+}
+
+.btn_selectbig_selected i{
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 2000ms;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 2000ms;
+    -ms-animation-fill-mode: forwards;
+     animation-name: spin;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+}
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(45deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(45deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(45deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(45deg);
+    }
+}
+
+#trip-date-finish{
+    float: right;
+}
+
+.input, .input_half{
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.input i{
+  color:#ccc;
+}
+
+.input span{
+    position: absolute;
+    display: block;
+    color: #ccc;
+    left: 10px;
+    top: 8px;
+}
+
+.input_quarter span{
+    position: absolute;
+    display: block;
+    color: #ddd;
+    left: 10px;
+    top: 8px;
+}
+
+.input_half{
+    display: inline-block;
+}
+
+span i{
+    color: #ccc;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.input_half .input_quarter{
+  width: 48%;
+  display: block;
+  border-radius: 4px;
+    position: relative;
+}
+
+.date_separator{
+  padding-left: 4px;
+  line-height: 2.2;
+}
+
+.input input, .input_quarter input{
+  width: 100%;
+  padding: 10px 5px 10px 40px;
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: 0.2s ease-out;
+  color: #888;
+}
+
+input::-webkit-input-placeholder {
+   color: #ccc;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: #ccc;  
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #ccc; 
+}
+
+input:-ms-input-placeholder {  
+   color: #ccc; 
+}
+
+.input input:focus{
+    padding: 10px 5px 10px 40px;
+    outline: 0;
+    border-color: #FF7052;
+}
+
+.newheader{
+  width: 100%;
+  background: #fff;
+  color: #ee735c;
+  display: inline-block;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.submit_btn{
+  width: 100%;
+  background: #ee735c;
+  border: none;
+  border-radius: 4px;
+  padding: 15px 0;
+  color: white;
+  text-transform: uppercase;
+}
+
+.closeheader{
+  color: #ee735c;
+  float: right;
+}
+
+.timeline-image img{
+    height: 100%;
+}
+
+#filters{
+    padding: 10px 0;
+    display: none;
+    width:100%;
+    text-align: center;
+    text-transform: uppercase;
+    color:white;
+    background: #6a85a2;
+    font-size: 14px;
+}
+
+#filters div{
+    width: 33%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+#places, #people{
+    border-right: 1px solid #fff;
+}
