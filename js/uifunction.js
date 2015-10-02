@@ -391,39 +391,6 @@ $("#logout").on("click", function(){
     $("#login_area").css("display","block");
 })
 
-//////////GET LOCATION
-/*
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-    console.log("I'm getting the location");
-}
-
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-    $("#entry-geo").val(latlon);
-    console.log("current location:"+ latlon);
-}
-
-function addMap(position){
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x300&sensor=false";
-    $("#scrap_area").append("<div id='mapholder'></div>");
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-    console.log("I'm getting the map");
-}
-*/
-//expands tile entry when clicked, becoming full screen
-/*$("body").on("click", ".tile",function() {
-    console.log("tile clicked");
-    $(this).toggleClass('tile_clicked');
-    $(".tile_bar").toggle("display");
-});*/
-
 
 for(var i=1; i<14;i++){
     var s= "<div class='tile_padding'><div class='tile' style='background-image:url(../images/" + i + ".JPG)'><div class='tile_overlay'>x</div></div></div>";
@@ -437,16 +404,10 @@ $(".header").on("click",".closeheader",function() {
     $("#markerPopup").css("display","none");
 });
 
-$(".addPost").on('click', function() {
-    $("#selectPhotos").animate({top:"0px"},500);
-    $("#selectPhotos").css('display','block');
-  });
-    
 $("#entry_next").on('click', function(){
     $("#finalizePost").animate({top:"0px"},500);
     $("#finalizePost").css('display','block');
 })
-
   
 $(".tile_padding").on('click', function(){
 	$(this).children().children().toggle();
@@ -466,12 +427,6 @@ $(".dropdown").on('click',"li", function(){
 $("#add_loc_text").on('click', function(){
     $(".dropdown").css('overflow','visible');
 });
-
-$("#navicon").on('click', function(){
-    console.log('navicon is clicked');
-    $("#main_header").css('display','none');
-    $("#menu").css('display','block');
-});
     
 $("#menu").on('click',function(){
     $(this).css('display','none');
@@ -483,5 +438,28 @@ $("#postUserImage").on('click',function(){
     
 });
 
+$(".start").on('click', '#map', function(){
+    $("#map").animate({"height" : "100%"},function(){
+        initMap();
+        window.mapObject.setZoom(2);
+        $(body).removeClass("start");
+    });
+});
+    
+$(".start").on('click','#lefticon' ,function(){
+    $("#menu").animate({left:"0px"},500);
+    $("#menu").css('display','block');
+    $("#menu").css('z-index','1');
+    $("#header").css('color','white');
+    $("#righticon").removeClass("fa-plus").addClass("fa-close");
+    $("body").removeClass("start").addClass("menu");
+});
+
+$(".start").on('click','#righticon', function() {
+    $("#selectPhotos").animate({top:"0px"},500);
+    $("#selectPhotos").css('display','block');
+  });
+        
+    
 ////    
 });

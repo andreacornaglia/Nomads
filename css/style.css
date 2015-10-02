@@ -8,14 +8,14 @@ html, body{
     margin:0;
     padding:0;
     font-family: 'Noto Sans', 'Helvetica', sans-serif;
-    background: #fff;
+    background: #FFFCDC;
     position: relative;
+    color: #00425B;
 }
 
 #map {
- height: 100%;
- z-index: 1;
- position: relative;
+position: relative;
+height: 200px;
 }
 
 .page{
@@ -23,7 +23,6 @@ html, body{
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 100;
   background: #FFFCDC;
   display: none;
 }
@@ -32,24 +31,20 @@ html, body{
 	display:inline-block;
 }
 
-#navicon{
+#lefticon{
     float:left;
 }
 
-.header{
-  color:#FFFCDC;
-  position: absolute;
-  top:0;
-  left: 0;
+#header{
+  z-index: 1000;
   font-size: 20px;
   width: 100%;
   padding: 25px 15px;
   display: inline-block;
   box-sizing: border-box;
-  z-index: 100000;
 }
 
-.header h1, #header_addoredit h1{
+#headerTitle{
     width:80%;
     margin: 0;
     font-weight: normal;
@@ -64,7 +59,6 @@ html, body{
     position: absolute;
     bottom: 40px;
     width: 100%;
-    z-index: 1;
 }
 
 #content{
@@ -80,7 +74,6 @@ li{
  list-style: none;
  cursor: pointer;
 }
-
 
 /*marker popup*/
 #markerPopup{
@@ -184,7 +177,6 @@ li{
   height: 100%;
   background: white;
   left: 0;
-  z-index: 2;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -200,7 +192,6 @@ li{
 
 .overlay, #VirTrip{
     position: absolute;
-    z-index: 10;
     top:800px;
     left: 0;
     width: 100%;
@@ -269,7 +260,6 @@ li{
 
 #finalizePost{
     visibility: none;
-    z-index: 12222;
 }
 
 .add_label{
@@ -338,12 +328,12 @@ li{
     display:none;
     position: absolute;
     top:0;
+    left: -500px;
     width: 100%;
     height: 100%;
-    background: rgba(0,66,91,.90);
+    background: rgba(0,66,91,.95);
     color: #FFFCDC;
     text-align: center;
-    z-index: 10000;
     font-size: 20px;
 }
 
@@ -358,7 +348,6 @@ li{
 
 #profilePage{
     display: none;
-    z-index: auto;
     top:0px;
 }
 
@@ -393,6 +382,10 @@ background-image: url('../images/d.png');
 background-size: 200px;
 }
 
+#homePage{
+display: block;
+}
+
 #mini_map{
     height: 300px;
 }
@@ -416,6 +409,8 @@ background-size: 200px;
 #thisweek_title{
     width: 100%;
     color: #00425B;
+    text-transform: uppercase;
+    margin-left: 10px;
 }
 
 .row{
@@ -424,19 +419,50 @@ background-size: 200px;
 }
 
 .row23{
-    width: 70%;
+    width: 63%;
+    height: 200px;
     float: left;
     background-image: url(../images/beach.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% cover;
 }
 
 .row13{
-    width: 30%;
+    width: 37%;
     float: left;
 }
 
+.row131{
+    width: 100%;
+    height: 100px;
+    background: #00425B;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.row132{
+    width: 100%;
+    height: 100px;
+    background:#4FBFB3;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+}
 
+.row_big_letters{
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-left: 10px;
+}
 
+#righticon{
+    text-align: right;
+    width: 10%;
+}
 
-
-
+.row_miles{
+    background-color: #4FBFB3;
+    color: white;
+}
 

@@ -123,18 +123,7 @@ function initMap() {
 
     //defining map settings
     var mapOptions = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
-        center: {
-            lat: 0,
-            lng: -180
-        },
-        disableDefaultUI: true,
-        mapTypeControlOptions: {
-            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-        }
-    });
-    var mapOptionsB = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
+        zoom: -1,
         center: {
             lat: 0,
             lng: -180
@@ -147,6 +136,7 @@ function initMap() {
     //grabbing div from html to populate with map  
     var map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
+    window.mapObject = map;
     //var mapB = new google.maps.Map(document.getElementById('mini_map'), mapOptionsB);
 
 
@@ -170,24 +160,7 @@ function initMap() {
         });
         
         //making custom marker clickable
-        var thisMarker = markers[i];
-        markerPopup.addListener('click', function () {
-            //infowindow.open(map, markerPopup);
-            console.log("triggering marker.Popup");
-            $("#markerPopup").animate({top: "130px"}, 500);
-            $("#markerPopup").css('display', 'block');
-            $("#map").animate({top: "-300px"}, 500);
-            $("#navicon").css('display', 'none');
-            $("#homeTitle").css('display', 'none');
-            $("#addPost").removeClass("fa-plus addPost").addClass("fa-close closeheader");
-            $("#postUserImage").css('background-image','url(' + thisMarker.profileImage + ')');
-            $("#postName").html(thisMarker.name);
-            $("#postData").html(thisMarker.postDate);  
-            $("#postPlace").html(thisMarker.place);
-            var latLng = markerPopup.getPosition(); // returns LatLng object
-            map.setCenter(latLng);
-            map.setZoom(3);
-        });
+        markerPopup.addListener('click', makeMarkerCallback(markers[i]));
     }
 
 
@@ -231,4 +204,24 @@ function initMap() {
 
 
 
+}
+
+function makeMarkerCallback(thisMarker) {
+    return function () {
+            //infowindow.open(map, markerPopup);
+            console.log("triggering marker.Popup");
+            $("#markerPopup").animate({top: "130px"}, 500);
+            $("#markerPopup").css('display', 'block');
+            $("#map").animate({top: "-300px"}, 500);
+            $("#navicon").css('display', 'none');
+            $("#homeTitle").css('display', 'none');
+            $("#addPost").removeClass("fa-plus addPost").addClass("fa-close closeheader");
+            $("#postUserImage").css('background-image','url(' + thisMarker.profileImage + ')');
+            $("#postName").html(thisMarker.name);
+            $("#postData").html(thisMarker.postDate);  
+            $("#postPlace").html(thisMarker.place);
+            var latLng = markerPopup.getPosition(); // returns LatLng object
+            map.setCenter(latLng);
+            map.setZoom(7);
+    };
 }
