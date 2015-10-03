@@ -8,9 +8,8 @@ html, body{
     margin:0;
     padding:0;
     font-family: 'Noto Sans', 'Helvetica', sans-serif;
-    background: #FFFCDC;
     position: relative;
-    color: #00425B;
+    color: #6A85A2;
 }
 
 #map {
@@ -23,7 +22,7 @@ height: 200px;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #FFFCDC;
+  background: #F1EFD4;
   display: none;
 }
 
@@ -42,6 +41,7 @@ height: 200px;
   padding: 25px 15px;
   display: inline-block;
   box-sizing: border-box;
+    background-color: #F1EFD4;
 }
 
 #headerTitle{
@@ -131,10 +131,10 @@ li{
 	width:30%;
 	margin:0;
 	padding:10px 0;
-    color:#FFFCDC;
+    color:#F2E8D7;
 	float:left;
 	text-align: center;
-    background: #00425B;
+    background: #F1EFD4;
 }
 
 #name_n_date{
@@ -182,7 +182,7 @@ li{
 }
 
 .tile_bar{
-    color:#fff;
+    color: #6A85A2;
     display: none;
     width: 100%;
     text-align: right;
@@ -201,7 +201,7 @@ li{
 
 .newheader{
   width: 100%;
-  color: #00425B;
+  color: #F1EFD4;
   display: inline-block;
   padding: 15px;
   box-sizing: border-box;
@@ -221,12 +221,12 @@ li{
   border: none;
   border-radius: 4px;
   padding: 15px 0;
-  color: white;
+  color: #6A85A2;
   text-transform: uppercase;
 }
 
 .closeheader{
-  color: #00425B;
+  color: #F1EFD4;
   float: right;
 }
 .tile_overlay{
@@ -247,8 +247,8 @@ li{
     padding: 20px;
     box-sizing: border-box;
     margin: 0;
-    background: #00425B;
-    color: #FFFCDC;
+    background: #F1EFD4;
+    color: #F2E8D7;
     text-align: center;
     text-transform: uppercase;
     font-size: 18px;
@@ -264,7 +264,7 @@ li{
 
 .add_label{
     margin: 15px;
-    border-bottom: 2px solid #00425B;
+    border-bottom: 2px solid #F1EFD4;
     font-size: 20px;
 }
 
@@ -278,7 +278,7 @@ li{
 }
 
 .pin{
-    color: #00425B;
+    color: #F1EFD4;
     margin-right: 5px;
 }
 
@@ -309,18 +309,18 @@ li{
 }
 
 .dropdown ul li a{
-    color:#00425B;
+    color:#F1EFD4;
     text-decoration: none;
     font-size: 15px;
 }
 
 .dropdown ul{
-    background-color: #FFFCDC;
+    background-color: #F2E8D7;
     width: 100%;
     margin-top: 0;
     padding-top: 10px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #00425B;
+    border-bottom: 2px solid #F1EFD4;
     padding: 0;
 }
 
@@ -332,7 +332,7 @@ li{
     width: 100%;
     height: 100%;
     background: rgba(0,66,91,.95);
-    color: #FFFCDC;
+    color: #F2E8D7;
     text-align: center;
     font-size: 20px;
 }
@@ -370,7 +370,7 @@ background-size: 200px;
 .b{
 background-image: url('../images/b.png');
 background-size: 200px;
-background-color:#00425B;
+background-color:#F1EFD4;
 }
 .c{
 background-image: url('../images/c.png');
@@ -402,13 +402,12 @@ display: block;
 }
 
 #thisweek_content{
-    background: #FFFCDC;
     width: 100%;
 }
 
 #thisweek_title{
     width: 100%;
-    color: #00425B;
+    color: #F1EFD4;
     text-transform: uppercase;
     margin-left: 10px;
 }
@@ -436,7 +435,7 @@ display: block;
 .row131{
     width: 100%;
     height: 100px;
-    background: #00425B;
+    background: #EF735C;
     color: white;
     padding: 30px;
     box-sizing: border-box;
@@ -444,7 +443,7 @@ display: block;
 .row132{
     width: 100%;
     height: 100px;
-    background:#4FBFB3;
+    background:#6A85A2;
     color: white;
     padding: 30px;
     box-sizing: border-box;
@@ -462,7 +461,7 @@ display: block;
 }
 
 .row_miles{
-    background-color: #4FBFB3;
+    background-color: #6A85A2;
     color: white;
 }
 
