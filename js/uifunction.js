@@ -439,10 +439,11 @@ $("#postUserImage").on('click',function(){
 });
 
 $(".start").on('click', '#map', function(){
-    $("#map").animate({"height" : "100%"},function(){
-        initMap();
+    $("#map").animate({"top":"0","height" : "100%"},function(){
+        initMap(true);
         window.mapObject.setZoom(2);
-        $(body).removeClass("start");
+        $("body").removeClass("start");  
+      $("#header").removeClass("white").addClass("transparent");
     });
 });
     

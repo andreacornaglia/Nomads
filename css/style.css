@@ -9,12 +9,22 @@ html, body{
     padding:0;
     font-family: 'Noto Sans', 'Helvetica', sans-serif;
     position: relative;
-    color: #6A85A2;
+}
+
+p, ul, h1, h2, h3{
+padding: 0;
+margin: 0;
+}
+
+h1{
+font-weight: normal;
 }
 
 #map {
 position: relative;
 height: 200px;
+top: 60px;
+z-index: 1;
 }
 
 .page{
@@ -22,7 +32,7 @@ height: 200px;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #F1EFD4;
+  background: #fff;
   display: none;
 }
 
@@ -35,23 +45,31 @@ height: 200px;
 }
 
 #header{
-  z-index: 1000;
-  font-size: 20px;
-  width: 100%;
-  padding: 25px 15px;
-  display: inline-block;
-  box-sizing: border-box;
-    background-color: #F1EFD4;
+    z-index: 1000;
+    font-size: 20px;
+    width: 100%;
+    padding: 20px 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.white{
+    background-color: #fff;
+    color: #14475A;
+}
+
+.transparent{
+    background-color: transparent;
+    color: #fff;
 }
 
 #headerTitle{
     width:80%;
-    margin: 0;
-    font-weight: normal;
     font-size: 18px;
     float:left;
-    padding: 0;
-    line-height: .9;
     text-align: center;
 }
 
@@ -78,6 +96,7 @@ li{
 /*marker popup*/
 #markerPopup{
     top:800px;
+    z-index: 3;
 }
 
 #user_info{
@@ -125,16 +144,20 @@ li{
 #like_comment{
 	width:100%;
 	display:inline-block;
+    background-color: #FEE991;
+    color:#00425B;
+    margin: 0;
+    padding: 0;
 }
 
-#count_like, #give_like, #comment{
-	width:30%;
+#like, #comment{
+	width:50%;
 	margin:0;
 	padding:10px 0;
-    color:#F2E8D7;
+    box-sizing: border-box;
+    
 	float:left;
 	text-align: center;
-    background: #F1EFD4;
 }
 
 #name_n_date{
@@ -182,7 +205,7 @@ li{
 }
 
 .tile_bar{
-    color: #6A85A2;
+    color: #14475A;
     display: none;
     width: 100%;
     text-align: right;
@@ -201,7 +224,7 @@ li{
 
 .newheader{
   width: 100%;
-  color: #F1EFD4;
+  color: #fff;
   display: inline-block;
   padding: 15px;
   box-sizing: border-box;
@@ -221,12 +244,12 @@ li{
   border: none;
   border-radius: 4px;
   padding: 15px 0;
-  color: #6A85A2;
+  color: #14475A;
   text-transform: uppercase;
 }
 
 .closeheader{
-  color: #F1EFD4;
+  color: #fff;
   float: right;
 }
 .tile_overlay{
@@ -247,7 +270,7 @@ li{
     padding: 20px;
     box-sizing: border-box;
     margin: 0;
-    background: #F1EFD4;
+    background: #fff;
     color: #F2E8D7;
     text-align: center;
     text-transform: uppercase;
@@ -264,7 +287,7 @@ li{
 
 .add_label{
     margin: 15px;
-    border-bottom: 2px solid #F1EFD4;
+    border-bottom: 2px solid #fff;
     font-size: 20px;
 }
 
@@ -278,7 +301,7 @@ li{
 }
 
 .pin{
-    color: #F1EFD4;
+    color: #fff;
     margin-right: 5px;
 }
 
@@ -309,7 +332,7 @@ li{
 }
 
 .dropdown ul li a{
-    color:#F1EFD4;
+    color:#fff;
     text-decoration: none;
     font-size: 15px;
 }
@@ -320,7 +343,7 @@ li{
     margin-top: 0;
     padding-top: 10px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #F1EFD4;
+    border-bottom: 2px solid #fff;
     padding: 0;
 }
 
@@ -370,7 +393,7 @@ background-size: 200px;
 .b{
 background-image: url('../images/b.png');
 background-size: 200px;
-background-color:#F1EFD4;
+background-color:#fff;
 }
 .c{
 background-image: url('../images/c.png');
@@ -384,6 +407,9 @@ background-size: 200px;
 
 #homePage{
 display: block;
+top: 260px;
+z-index: 0;
+text-transform: uppercase;
 }
 
 #mini_map{
@@ -407,7 +433,7 @@ display: block;
 
 #thisweek_title{
     width: 100%;
-    color: #F1EFD4;
+    color: #14475A;
     text-transform: uppercase;
     margin-left: 10px;
 }
@@ -424,7 +450,7 @@ display: block;
     background-image: url(../images/beach.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% cover;
+    background-size: cover;
 }
 
 .row13{
@@ -432,36 +458,45 @@ display: block;
     float: left;
 }
 
-.row131{
+.row131, .row131 {
     width: 100%;
     height: 100px;
-    background: #EF735C;
-    color: white;
     padding: 30px;
     box-sizing: border-box;
+
+}
+.row131 {
+    background: #FEE991;
+    color: #14475A;
 }
 .row132{
-    width: 100%;
-    height: 100px;
-    background:#6A85A2;
+    background:#14475A;
     color: white;
-    padding: 30px;
-    box-sizing: border-box;
 }
 
+.bignumber{}
+.bigtitle{}
+
 .row_big_letters{
-    text-transform: uppercase;
     font-size: 18px;
-    margin-left: 10px;
+    margin-left: 10px;   
+}
+
+.row_paris{
+    background: #fff;
+}
+
+.row_new{
+    background: #FF7881;
 }
 
 #righticon{
     text-align: right;
     width: 10%;
+    transform-origin: "center top";
 }
 
 .row_miles{
-    background-color: #6A85A2;
+    background-color: #14475A;
     color: white;
 }
-

@@ -1,17 +1,7 @@
 /// Map for homepage - shows my and my friend's last post location
 
-function initMap() {
-    //defines map styling ; this one was created by using ...    
-    var markerTrip = [
-        {
-            "userName": "Virginia",
-            "date": "1 day ago",
-            "profilePhoto": "virginia.png",
-            "photo": "sydney.png",
-            "position": "{lat: -33.890, lng: 151.274}"
-    }
-]
-
+function initMap(showPhotos) {
+    //defines map styling ; this one was created by using ...
     var styles = [
     {
         "featureType": "administrative",
@@ -63,7 +53,7 @@ function initMap() {
         "elementType": "all",
         "stylers": [
             {
-                "color": "#81A6C0"
+                "color": "#FF7881"
             },
             {
                 "visibility": "on"
@@ -126,7 +116,7 @@ function initMap() {
         "elementType": "all",
         "stylers": [
             {
-                "color": "#F1EFD4"
+                "color": "#13475A"
             },
             {
                 "visibility": "on"
@@ -141,10 +131,10 @@ function initMap() {
 
     //defining map settings
     var mapOptions = new google.maps.Map(document.getElementById('map'), {
-        zoom: -1,
+        zoom: 1,
         center: {
             lat: 0,
-            lng: -180
+            lng: 0
         },
         disableDefaultUI: true,
         mapTypeControlOptions: {
@@ -165,20 +155,34 @@ function initMap() {
     for (i = 0; i < markers.length; i++) {
         var image = {
             url: markers[i].profileImage,
-            scaledSize: new google.maps.Size(50, 50), // scaled size
+            scaledSize: new google.maps.Size(40, 40), // scaled size
             origin: new google.maps.Point(0, 0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
+            anchor: new google.maps.Point(0, 0), // anchor
+            strokeColor: '#FF7881',
+            strokeWeight:60,
+            strokeOpacity: 1
         };
         var myLatlng = new google.maps.LatLng(markers[i].latitude, markers[i].longitude);
         //defining custom markers
+        var icon = image;
+        if (!showPhotos) {
+           icon =  {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 10,
+                fillColor: '#FEE991',
+                fillOpacity: 1,
+                strokeWeight: 0
+            };
+        }
         var markerPopup = new google.maps.Marker({
             position: myLatlng,
             map: map,
-            icon: image
+            optimized: false,
+            icon: icon
         });
-        
+
         //making custom marker clickable
-        markerPopup.addListener('click', makeMarkerCallback(markers[i]));
+        markerPopup.addListener('click', makeMarkerCallback(markers[i], markerPopup, map));
     }
 
 
@@ -224,16 +228,18 @@ function initMap() {
 
 }
 
-function makeMarkerCallback(thisMarker) {
+function makeMarkerCallback(thisMarker, markerPopup, map) {
     return function () {
             //infowindow.open(map, markerPopup);
             console.log("triggering marker.Popup");
             $("#markerPopup").animate({top: "130px"}, 500);
             $("#markerPopup").css('display', 'block');
+            //this is not working (map changing size/position)
             $("#map").animate({top: "-300px"}, 500);
-            $("#navicon").css('display', 'none');
-            $("#homeTitle").css('display', 'none');
-            $("#addPost").removeClass("fa-plus addPost").addClass("fa-close closeheader");
+            $("#map").css({height: "200px"}, 500);
+            $("#lefticon").css('display', 'none');
+            $("#headerTitle").html(thisMarker.name+"'s Trip");
+            $("#righticon").css({transform: "rotate(45deg)"});
             $("#postUserImage").css('background-image','url(' + thisMarker.profileImage + ')');
             $("#postName").html(thisMarker.name);
             $("#postData").html(thisMarker.postDate);  
