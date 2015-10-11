@@ -53,7 +53,7 @@ function initMap(showPhotos) {
         "elementType": "all",
         "stylers": [
             {
-                "color": "#FF7881"
+                "color": "#B3EBE3"
             },
             {
                 "visibility": "on"
@@ -169,7 +169,7 @@ function initMap(showPhotos) {
            icon =  {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 10,
-                fillColor: '#FEE991',
+                fillColor: '#FF7881',
                 fillOpacity: 1,
                 strokeWeight: 0
             };
@@ -185,7 +185,7 @@ function initMap(showPhotos) {
         markerPopup.addListener('click', makeMarkerCallback(markers[i], markerPopup, map));
     }
 
-
+    var currLatlong;
     //get current location using maps api    
     function getLocation() {
         console.log("I'm get location!");
@@ -230,13 +230,8 @@ function initMap(showPhotos) {
 
 function makeMarkerCallback(thisMarker, markerPopup, map) {
     return function () {
-            //infowindow.open(map, markerPopup);
-            console.log("triggering marker.Popup");
-            $("#markerPopup").animate({top: "130px"}, 500);
-            $("#markerPopup").css('display', 'block');
-            //this is not working (map changing size/position)
-            $("#map").animate({top: "-300px"}, 500);
-            $("#map").css({height: "200px"}, 500);
+            //$(document.body).removeClass();
+            $(document.body).removeClass().addClass("open_post");
             $("#lefticon").css('display', 'none');
             $("#headerTitle").html(thisMarker.name+"'s Trip");
             $("#righticon").css({transform: "rotate(45deg)"});
