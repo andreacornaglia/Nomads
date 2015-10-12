@@ -29,10 +29,19 @@ h1{
 font-weight: normal;
 }
 
+body.open_post #header, body.map_fullsize #header{
+   position: absolute;
+}
+
 body.start #map {
 position: relative;
-height: 200px;
-top: 60px;
+height: 200px !important;
+z-index: 1;
+}
+
+body.open_post #map {
+position: relative;
+height: 130px !important;
 z-index: 1;
 }
 
@@ -43,16 +52,13 @@ body.map-top #map, body.open-post #map{
 
 body.map-top #makePost, body.open-post #markerPopup{
     display: block;
-    top:130px;
+    magin-top:130px;
     overflow-y: auto;
 }
 
 
 .page{
-  position: fixed;
-  left: 0;
   width: 100%;
-  height: 100%;
   background: #fff;
   display: none;
 }
@@ -72,9 +78,6 @@ body.map-top #makePost, body.open-post #markerPopup{
     padding: 20px 15px;
     display: inline-block;
     box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .white{
@@ -414,7 +417,6 @@ body.map-top #homePage, body.map-top #lefticon, body.map #homePage{
 
 #profilePage{
     display: none;
-    top:0px;
 }
 
 #stats{
@@ -450,7 +452,6 @@ background-size: 200px;
 
 body.start #homePage{
  display: block;
- top: 230px;
  z-index: 1;
  text-transform: uppercase;
 }
@@ -469,7 +470,7 @@ body.start #homePage{
     margin: 0;
     font-size: 14px;
     float: left;
-    width: 250px;
+    width: 230px;
 }
 
 #thisweek_content{
@@ -480,14 +481,15 @@ body.start #homePage{
     width: 100%;
     color: #14475A;
     text-transform: uppercase;
-    margin-left: 10px;
     padding: 15px;
+    box-sizing: border-box;
 }
 
 .row{
     width: 100%;
     float: left;
     padding: 30px;
+    box-sizing: border-box;
 }
 
 .row23{
@@ -631,23 +633,14 @@ body.open_post #homePage{
 
 body.open_post #markerPopup{
     display: block;
-    top: 130px;
 }
 
 .swiper-container {
     width: 100%;
-    height: 400px;
+    height: 150px;
 }   
 
-.swiper-button-next, .swiper-button-prev {
-    top:80px;
-}
 
-.swiper-button-prev{
-}
-
-.swiper-button-next{
-}
 
 #postUserImageC1{
     background-image: url(../images/gime.png);
@@ -674,4 +667,11 @@ textarea{
     font-size: 15px;
     font-family: 'Montserrat';
     border-bottom: 2px solid black;
+}
+
+#post_info{
+    width:100%;
+    height: 300px;
+    background-image: url("../images/sydney.jpg");
+    background-size: cover;
 }

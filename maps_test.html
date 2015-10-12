@@ -70,7 +70,6 @@
         </div>
       </div>
       <div id="post_info">
-          <img src="images/sydney.jpg">
       </div>
       <div id="like_comment">
         <div id="like"><i id="like_btn" class="fa fa-heart-o">&nbsp;&nbsp;&nbsp;</i>13</div>
@@ -102,13 +101,14 @@
               </div>
               </div>
             </div>
-          </div>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
           <!--
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
           -->
-         </div>
       </div>
+    </div>
     <div class="page" id="profilePage">
       <div id="user_info">
         <div class="user_image" id="profileUserImage">
@@ -169,7 +169,7 @@
          post memory
       </div>
     </div>
-      
+     
     <!--Scripts--> 
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
@@ -177,9 +177,11 @@
     <script src="js/swiper.jquery.min.js"></script>
     <script src="js/maps.js"></script> 
     <script src="js/uifunction.js"></script>
-    <script src="js/database.js"></script>
-
-      
+    <script src="js/database.js"></script> 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9I1PqBH3s8Z3Qgg-5CGgPmc2Q9fi5yg&libraries=places&callback=initMap"></script>
+      
+    <script>
+    var swiper = new Swiper('.swiper-container');
+    </script> 
   </body>
 </html>

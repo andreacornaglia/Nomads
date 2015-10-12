@@ -12,6 +12,8 @@ var currentTrip = "no trip selected";
 var currentEntry = "no entry selected";
 var currentUser = "no user selected";
 
+// Indicates whether the map is in full-size mode.
+var isMapFullsize = false;
 
 /////////SHOW EXISTING TRIPS
 function getTrip() {
@@ -442,10 +444,13 @@ $("#postUserImage").on('click',function(){
 $(".start").on('click', '#map', function(){
     $("#homePage").css("display","none");
     $("#map").animate({"top":"0","height" : "100%"},function(){
-        initMap(true);
-        window.mapObject.setZoom(2);
-        $("#header").removeClass().addClass("transparent");
-        
+        if (!isMapFullsize) {
+            initMap(true);
+            window.mapObject.setZoom(2);
+            $("#header").removeClass().addClass("transparent");
+            $("body").removeClass().addClass("map_fullsize");
+            isMapFullsize = true;
+        }
     });
 });
     
@@ -472,9 +477,8 @@ $("#like").on('click', function() {
     var mySwiper = new Swiper ('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
+      pagination: '.swiper-pagination',
       // Navigation arrows
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
       loop: true
     });
 /*    
