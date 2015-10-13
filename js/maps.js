@@ -1,125 +1,185 @@
 /// Map for homepage - shows my and my friend's last post location
+var initialLocation;
+var map;
+//get current location using maps api    
+$(document).ready(function () {
+    console.log("I'm get location!");
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+    console.log("I'm getting the location");
+
+//using current location to get list of nearby places using places api
+function showPosition(position) {
+    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+}
+});
+
+function centerMap(){
+    /*icon = {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 10,
+                fillColor: '#FF7881',
+                fillOpacity: 1,
+                strokeWeight: 0
+            };
+    var markerNow = new google.maps.Marker({
+            position: initialLocation,
+            map: map,
+            optimized: false,
+            icon: icon
+        });*/
+    map.setCenter(initialLocation);
+    map.setZoom(7);
+}
+
+function getLocation() {
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+        location: initialLocation,
+        radius: 500,
+    }, callback);
+
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            html = '<ul>';
+            for (var i = 0; i < 5; i++) {
+                if (typeof results[i] !== 'undefined') {
+                    console.log(results);
+                    html += '<li><a href="#place_details">' + results[i].name + '</a></li>';
+                }
+            }
+            html += '</ul>';
+            $('#loc_dropdown').html(html);
+        }
+    }
+
+}
+
+
 
 function initMap(showPhotos) {
     //defines map styling ; this one was created by using ...
     var styles = [
-    {
-        "featureType": "administrative",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
+        {
+            "featureType": "administrative",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "simplified"
             }
         ]
     },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "administrative",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#575757"
+        {
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#575757"
             }
         ]
     },
-    {
-        "featureType": "administrative.country",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
+        {
+            "featureType": "administrative.country",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "simplified"
             }
         ]
     },
-    {
-        "featureType": "administrative.province",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "administrative.province",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#B3EBE3"
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#B3EBE3"
             },
-            {
-                "visibility": "on"
+                {
+                    "visibility": "on"
             }
         ]
     },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "saturation": -100
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
             },
-            {
-                "lightness": 45
+                {
+                    "lightness": 45
             },
-            {
-                "visibility": "off"
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "road.arterial",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
+        {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
             }
         ]
     },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#13475A"
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#13475A"
             },
-            {
-                "visibility": "on"
+                {
+                    "visibility": "on"
             }
         ]
     }
@@ -142,7 +202,7 @@ function initMap(showPhotos) {
         }
     });
     //grabbing div from html to populate with map  
-    var map = new google.maps.Map(document.getElementById('map'),
+    map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
     window.mapObject = map;
     //var mapB = new google.maps.Map(document.getElementById('mini_map'), mapOptionsB);
@@ -159,14 +219,14 @@ function initMap(showPhotos) {
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(0, 0), // anchor
             strokeColor: '#FF7881',
-            strokeWeight:60,
+            strokeWeight: 60,
             strokeOpacity: 1
         };
         var myLatlng = new google.maps.LatLng(markers[i].latitude, markers[i].longitude);
         //defining custom markers
         var icon = image;
         if (!showPhotos) {
-           icon =  {
+            icon = {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 10,
                 fillColor: '#FF7881',
@@ -185,62 +245,22 @@ function initMap(showPhotos) {
         markerPopup.addListener('click', makeMarkerCallback(markers[i], markerPopup, map));
     }
 
-    var currLatlong;
-    //get current location using maps api    
-    function getLocation() {
-        console.log("I'm get location!");
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-        console.log("I'm getting the location");
-    }
-
-    //using current location to get list of nearby places using places api
-    function showPosition(position) {
-        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-            location: initialLocation,
-            radius: 500,
-        }, callback);
-
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                html = '<ul>';
-                for (var i = 0; i < 5; i++) {
-                    if (typeof results[i] !== 'undefined') {
-                        console.log(results);
-                        html += '<li><a href="#place_details">' + results[i].name + '</a></li>';
-                    }
-                }
-                html += '</ul>';
-                $('#loc_dropdown').html(html);
-            }
-        }
-    }
-
-    getLocation();
-    //problem: how to use current position to make place search    
-
-
-
 }
 
 function makeMarkerCallback(thisMarker, markerPopup, map) {
     return function () {
-            //$(document.body).removeClass();
-            $(document.body).removeClass().addClass("open_post");
-            $("#lefticon").css('display', 'none');
-            $("#headerTitle").html(thisMarker.name+"'s Trip");
-            $("#righticon").css({transform: "rotate(45deg)"});
-            $("#postUserImage").css('background-image','url(' + thisMarker.profileImage + ')');
-            $("#postName").html(thisMarker.name);
-            $("#postData").html(thisMarker.postDate);  
-            $("#postPlace").html(thisMarker.place);
-            var latLng = markerPopup.getPosition(); // returns LatLng object
-            map.setCenter(latLng);
-            map.setZoom(7);
+        //$(document.body).removeClass();
+        $(document.body).removeClass().addClass("open_post");
+        $("#lefticon").css('display', 'none');
+        $("#headerTitle").html(thisMarker.name + "'s Trip");
+        $("#postUserImage").css('background-image', 'url(' + thisMarker.profileImage + ')');
+        $("#postName").html(thisMarker.name);
+        $("#postData").html(thisMarker.postDate);
+        $("#postPlace").html(thisMarker.place);
+        var latLng = markerPopup.getPosition(); // returns LatLng object
+        map.setCenter(latLng);
+        map.setZoom(7);
+        console.log("Calling .carrousel.slick");
+        $('.carrousel').slick();
     };
 }

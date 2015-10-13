@@ -33,6 +33,16 @@ body.open_post #header, body.map_fullsize #header{
    position: absolute;
 }
 
+/*body.map_fullsize{
+   position: relative;
+    height: 800px;
+}*/
+
+#map{
+    position: relative;
+}
+
+
 body.start #map {
 position: relative;
 height: 200px !important;
@@ -294,8 +304,8 @@ li{
     padding: 20px;
     box-sizing: border-box;
     margin: 0;
-    background: #fff;
-    color: #F2E8D7;
+    background: #FF7881;
+    color: #FFf;
     text-align: center;
     text-transform: uppercase;
     font-size: 18px;
@@ -482,6 +492,7 @@ body.start #homePage{
     color: #14475A;
     text-transform: uppercase;
     padding: 15px;
+    font-size: 14px;
     box-sizing: border-box;
 }
 
@@ -635,11 +646,39 @@ body.open_post #markerPopup{
     display: block;
 }
 
-.swiper-container {
+/*
+
+ .swiper-container {
+        width: 500px;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+*/
+
+.carrousel {
     width: 100%;
     height: 150px;
-}   
-
+}
 
 
 #postUserImageC1{
@@ -674,4 +713,60 @@ textarea{
     height: 300px;
     background-image: url("../images/sydney.jpg");
     background-size: cover;
+}
+
+.socialm_btn{
+    width: 150px;
+    float: left;
+    margin:10px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btn_off{
+    background: #ccc;
+}
+
+.btn_on{
+    background: #yellow;
+}
+
+.photos_this_week #photos_week{
+  display: block;
+}
+
+.photos_this_week #map{
+  display: none;
+  height: 0;
+}
+
+.photos_this_week #lefticon{
+  display: none;
+}
+
+.photos_this_week #righticon, .map-top #righticon{
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    margin-left: 30px;
+    margin-top: -7px;
+}
+
+#photos_week{
+  width: 100%;
+}
+
+.each_photo{
+  width: 32.8%;
+  border: 1px solid white;
+  height: 100px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.each_photo img{
+    width: 200%;
 }
