@@ -1,68 +1,11 @@
 /// Map for homepage - shows my and my friend's last post location
 var initialLocation;
 var map;
-//get current location using maps api    
-$(document).ready(function () {
-    console.log("I'm get location!");
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-    console.log("I'm getting the location");
+var map2;
+var service;
+var markerHere;
 
-//using current location to get list of nearby places using places api
-function showPosition(position) {
-    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-}
-});
-
-function centerMap(){
-    /*icon = {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 10,
-                fillColor: '#FF7881',
-                fillOpacity: 1,
-                strokeWeight: 0
-            };
-    var markerNow = new google.maps.Marker({
-            position: initialLocation,
-            map: map,
-            optimized: false,
-            icon: icon
-        });*/
-    map.setCenter(initialLocation);
-    map.setZoom(7);
-}
-
-function getLocation() {
-    var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-        location: initialLocation,
-        radius: 500,
-    }, callback);
-
-    function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            html = '<ul>';
-            for (var i = 0; i < 5; i++) {
-                if (typeof results[i] !== 'undefined') {
-                    console.log(results);
-                    html += '<li><a href="#place_details">' + results[i].name + '</a></li>';
-                }
-            }
-            html += '</ul>';
-            $('#loc_dropdown').html(html);
-        }
-    }
-
-}
-
-
-
-function initMap(showPhotos) {
-    //defines map styling ; this one was created by using ...
-    var styles = [
+var styles = [
         {
             "featureType": "administrative",
             "elementType": "all",
@@ -86,7 +29,7 @@ function initMap(showPhotos) {
             "elementType": "labels.text.fill",
             "stylers": [
                 {
-                    "color": "#575757"
+                    "color": "#FF7881"
             }
         ]
     },
@@ -184,6 +127,135 @@ function initMap(showPhotos) {
         ]
     }
 ];
+
+//get current location using maps api    
+$(document).ready(function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude,
+                                         position.coords.longitude);
+        })
+    }
+    else{
+        console.log("allow geolocation");
+    }
+});
+
+function centerMap(){
+    //defining map settings
+    var styledMap = new google.maps.StyledMapType(styles, {
+        name: "Styled Map"
+    });
+    var mapOptions2 = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: initialLocation,
+        disableDefaultUI: true,
+        mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        }
+    });
+    map2 = new google.maps.Map(document.getElementById('map'),
+        mapOptions2);
+    window.mapObject = map;
+    map2.mapTypes.set('map_style', styledMap);
+    map2.setMapTypeId('map_style');
+    var icon = {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 10,
+                fillColor: '#FF7881',
+                fillOpacity: 1,
+                strokeWeight: 0
+    };
+    var markerHere = new google.maps.Marker({
+            position: initialLocation,
+            map: map2,
+            optimized: false,
+            icon: icon
+    });
+    
+    getLocation();
+}
+
+function getLocation() {
+    var service = new google.maps.places.PlacesService(map2);
+    service.nearbySearch({
+        location: initialLocation,
+        radius: 500,
+    }, callback);
+
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            html = '<ul>';
+            for (var i = 0; i < 5; i++) {
+                if (typeof results[i] !== 'undefined') {
+                    console.log(results);
+                    html += '<li>' + results[i].name + '</li>';
+                }
+            }
+            html += '</ul>';
+            $('#loc_dropdown').html(html);
+        }
+    }
+
+}
+
+/*function centerMap() {
+    console.log("centerMap");
+    var mapOptions = {
+        zoom: 15
+    };
+
+    map2 = new google.maps.Map(document.getElementById('map'), mapOptions);
+    console.log(map);
+
+    // Try HTML5 geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude,
+                                         position.coords.longitude);
+
+            infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: initialLocation
+            });
+
+            map.setCenter(initialLocation);
+
+            var request = {
+                location:initialLocation,
+                radius:500
+            };
+
+            var service = new google.maps.places.PlacesService(map2);
+            service.nearbySearch(request,callback);
+        })
+    } else {
+        // Browser doesn't support Geolocation
+        console.log("no geoloc");
+    }
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            html = '<ul>';
+            for (var i = 0; i < 5; i++) {
+                if (typeof results[i] !== 'undefined') {
+                    console.log(results);
+                    html += '<li>' + results[i].name + '</li>';
+                }
+            }
+            html += '</ul>';
+            $('#loc_dropdown').html(html);
+            }
+        }
+    }
+
+*/
+
+
+/*load map with markers*/
+function initMap(showPhotos) {
+    //defines map styling ; this one was created by using ...
+    
     //adding the styling settings to our map    
     var styledMap = new google.maps.StyledMapType(styles, {
         name: "Styled Map"
@@ -205,8 +277,6 @@ function initMap(showPhotos) {
     map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
     window.mapObject = map;
-    //var mapB = new google.maps.Map(document.getElementById('mini_map'), mapOptionsB);
-
 
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('map_style', styledMap);

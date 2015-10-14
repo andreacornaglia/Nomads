@@ -77,7 +77,6 @@ $(document).ready(function () {
 
     $("body").on('click touchstart', '#righticon', function () {
         centerMap();
-        getLocation();
         $("body").removeClass("start").addClass("map-top");
         $("#header").css('background-color', 'transparent');
         $("#headerTitle").html("New Post");
