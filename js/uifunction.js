@@ -86,30 +86,59 @@ $(document).ready(function () {
         $("#like_btn").toggleClass("fa-heart-o").toggleClass("fa-heart");
     });
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            $(".photo_container").append("<div class='photo_thumbnails'></div>");
-            reader.onload = function (e) {
-                $('.photo_thumbnails').css('background-image', 'url(' + e.target.result + ')');
+
+    /*uploading multiple images*/
+    var inputLocalFont = document.getElementById("inputFile");
+    inputLocalFont.addEventListener("change",previewImages,false);
+
+    function previewImages(){
+        var fileList = this.files;
+
+        var anyWindow = window.URL || window.webkitURL;
+
+            for(var i = 0; i < fileList.length; i++){
+              var objectUrl = anyWindow.createObjectURL(fileList[i]);
+              $('.photo_container').append('<img class="photo_thumbnails" src="' + objectUrl + '" />');
+              window.URL.revokeObjectURL(fileList[i]);
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
-    }
-
-    $("#inputFile").change(function () {
-        readURL(this);
-    });
-
-    $('.row131').on('click touchstart', function(){
+    
+    /*alternative way of uploading a picture*/
+    
+    
+    $('.photosThisWeek').on('click touchstart', function(){
         $("body").removeClass().addClass("photos_this_week");
         $("#headerTitle").text("Photos from this week");
     })
+    
+    /*
     var s;
     for (i=1; i<23;i++) {
         s = '<div class="each_photo"><img src="images/'+i+'.jpg"></div>';
         $('#photos_week').append(s);
     }
-
+    */
+    var template = Handlebars.compile($("#test-template").html());
+    var url = "../images/"
+    
+    for (var i = 0; i < 20; i+=6) {
+        var obj = {
+            id:33,
+            title:url+i+".jpg",
+            image1:url+(i+1)+".jpg", 
+            image2:url+(i+2)+".jpg", 
+            image3:url+(i+3)+".jpg",
+            image4:url+(i+4)+".jpg",
+            image5:url+(i+5)+".jpg",
+            image6:url+(i+6)+".jpg"
+        }
+        
+        var html = template(obj);
+        $(".column").append(html);
+    }
+    
+    $(".socialm_btn").on('click touchstart', function(){
+        console.log("tapping social media buttons");
+        $(this).toggleClass("btn_on");
+    })
 });
