@@ -25,7 +25,7 @@ $(document).ready(function () {
         $("#selected_photos").append("<div class='tile_padding_small'><div class='tile' style='background-image:" + selected + "'></div></div>");
     })
 
-    $("#loc_dropdown").on('click touchstart', "li", function () {
+    $("#loc_dropdown").on('click touchstart', "ul", function () {
         var text = $(this).children().html();
         console.log(text);
         $("#loc_dropdown").css('overflow', 'hidden');
