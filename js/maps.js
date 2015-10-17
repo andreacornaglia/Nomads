@@ -4,6 +4,7 @@ var map;
 var map2;
 var service;
 var markerHere;
+var sliderOn = false;
 
 var styles = [
         {
@@ -331,6 +332,9 @@ function makeMarkerCallback(thisMarker, markerPopup, map) {
         map.setCenter(latLng);
         map.setZoom(7);
         console.log("Calling .carrousel.slick");
-        $('.carrousel').slick();
+        $('.carrousel').slick({
+            dots : true
+        });
+        sliderOn = true;
     };
 }

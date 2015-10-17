@@ -114,13 +114,11 @@
 /* Dots */
 .slick-slider
 {
-    margin-bottom: 30px;
 }
 
 .slick-dots
 {
     position: absolute;
-    bottom: -45px;
 
     display: block;
 
@@ -175,7 +173,7 @@
 .slick-dots li button:before
 {
     /*font-family: 'slick';*/
-    font-size: 6px;
+    font-size: 22px;
     line-height: 20px;
 
     position: absolute;
@@ -197,5 +195,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: black;
+    color: #FF7881;
 }

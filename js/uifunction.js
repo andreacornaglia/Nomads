@@ -56,18 +56,14 @@ $(document).ready(function () {
 
     $(".start").on('click touchstart', '#map', function () {
         $("#homePage").css("display", "none");
-        $("#map").animate({
-            "top": "0",
-            "height": "800px"
-        }, function () {
+        
             if (!isMapFullsize) {
-                initMap(true);
                 $("body").removeClass().addClass("map_fullsize");
+                initMap(true);
                 window.mapObject.setZoom(2);
                 $("#header").removeClass().addClass("transparent");
                 isMapFullsize = true;
             }
-        });
     });
 
     $(".start").on('click touchstart', '#lefticon', function () {
@@ -93,14 +89,18 @@ $(document).ready(function () {
 
     function previewImages(){
         var fileList = this.files;
-
+        var urls =[];
         var anyWindow = window.URL || window.webkitURL;
 
             for(var i = 0; i < fileList.length; i++){
               var objectUrl = anyWindow.createObjectURL(fileList[i]);
-              $('.photo_container').append('<img class="photo_thumbnails" src="' + objectUrl + '" />');
+              /*
+              $('.photo_container').append('<img class="photo_thumbnails" src="' + objectUrl + '" />');*/
+              urls[i] = objectUrl;  
+                
               window.URL.revokeObjectURL(fileList[i]);
             }
+            console.log(objectUrl);
         }
     
     /*alternative way of uploading a picture*/
@@ -111,17 +111,10 @@ $(document).ready(function () {
         $("#headerTitle").text("Photos from this week");
     })
     
-    /*
-    var s;
-    for (i=1; i<23;i++) {
-        s = '<div class="each_photo"><img src="images/'+i+'.jpg"></div>';
-        $('#photos_week').append(s);
-    }
-    */
     var template = Handlebars.compile($("#test-template").html());
     var url = "../images/"
     
-    for (var i = 0; i < 20; i+=6) {
+    for (var i = 0; i < 19; i+=6) {
         var obj = {
             id:33,
             title:url+i+".jpg",
@@ -141,4 +134,19 @@ $(document).ready(function () {
         console.log("tapping social media buttons");
         $(this).toggleClass("btn_on");
     })
+    $('#comment_btn').on('click', function() {
+        if (!sliderOn) {
+            return;
+        }
+        else {
+            console.log("tapping the comment btn!");
+          $('.carrousel').slick('slickAdd',
+                 '<div class="comment_item"><div class="user_text"><div class="user_image" id="postUserImageC1"></div><textarea class="foto_description comment_textarea" placeholder="Add your comments here!"></textarea></div><div class="name_n_date"><h1 class="postPlace" id="postPlaceC">Andrea C</h1><h1 class="postData" id="postDataC">now</h1></div></div>'
+          
+          );
+         $('.carrousel').slick('slickGoTo',2);
+        }
+    });
+        
+    
 });
