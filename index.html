@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0">
@@ -9,205 +9,212 @@
     <title>Travel Journey</title>
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-      
-    <link rel="stylesheet" href="css/swiper.min.css"/>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,200|Roboto:400,300,500' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div id="login_area">
-        <div class="header">
-            <h1>Travel Journey</h1>
-        </div>
-    	<div id="login_container">
-		<h1>Login</h1>
-		<form id="login">
-			<p>name<br><input id="login-name" type="text"></p>
-			<p>password<br><input id="login-password" type="password"></p>
-			<p><input type="submit"></p>
-		</form>
-		<h1>Sign up</h1>
-		<form id="signup">
-			<p>name<br><input id="signup-name" type="text"></p>
-			<p>email<br><input id="signup-email" type="email"></p>
-			<p>password<br><input id="signup-password" type="password"></p>
-			<p><input type="submit"></p>
-		</form>
-		</div>
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+</head>
+
+<body class="start">
+
+    <div id="header" class="white">
+        <i class="fa fa-navicon" id="lefticon"></i>
+        <h1 id="headerTitle">Nomads</h1>
+        <i id="righticon" class="fa fa-plus"></i>
     </div>
-	<div id="trip_area">
-        <div class="header">
-            <i class="fa  fa-navicon" id="navicon"></i>
-            <h1>My Trip History</h1>
-            <i id="logout" class="fa  fa-close"></i>
-        </div>
-        <div id="trips_slider">
-            <div id="trip_container" class="swiper-container">
-                <div id="existing_trips" class="swiper-wrapper">
-                </div>
-            </div>
-        </div>
-        <div class="overlay">
-            <div id="newtrip">
-                <div class="newheader">
-                    <h2 class="entry-title">Add New Entry</h2>
-                    <i class="fa fa-close closeheader"></i>
-                </div>
-                <div class="timeline-image">
-                    <img src="images/balloon.jpg" alt="Picture">
-                </div>
-                <form id="trip">
-                    <p><input type="file" id="trip-image"></p>
-                    <div class="input">
-    	               <input id="trip-name" type="text" placeholder="Name" required />
-                        <span><i class="fa fa-user"></i></span>
-                    </div>
-                    <div class="input">
-    	               <input id="trip-description" type="text" placeholder="Description" required />
-                       <span><i class="fa fa-file-text-o"></i></span>
-                    </div>
-                    <div class="input_half">
-                        <div class="input_quarter left">
-    	               <input id="trip-date-start" type="date" placeholder="Name" required />
-                        <span><i class="fa fa-calendar-o"></i></span>
-                        </div>
-                        <span class="date_separator">/</span>
-                        <div class="input_quarter right">
-                       <input id="trip-date-finish" type="date" placeholder="Name" required />
-                        <span><i class="fa fa-calendar-o"></i></span>
-                        </div>
-                    </div>
-                    <div class="input">
-    	               <input id="trip-collaborator" type="text" placeholder="Collaborators" required />
-                        <span><i class="fa fa-envelope-o"></i></span>
-                    </div>
-                        <p><input class="submit_btn" type="submit"></p>
-                </form>
-            </div>
-        </div>
-        <div class="box">
-            <div class="btn_selectbig" id="add_trip">
-                <i class="fa fa-lg fa-plus"></i>
-            </div>
-        </div>
-	</div>
-	<div id="entry_area">
-        <div class="header">
-            <i id="entry_back" class="fa  fa-chevron-left"></i>
-            <h1 id="entry_trip_name">Trip's Entries</h1>
-            <i id="trip_edit" class="fa  fa-pencil"></i>
-            <i id="trip_filter" class="fa  fa-filter"></i>
-        </div>
-        <div id="filters">
-                <div id="people">
-                    people
-                </div>
-                <div id="places">
-                    places
-                </div>
-                <div id="days">
-                    days
-                </div>
-        </div>
-		<div id="entry_container">
-            <div id="existing_entries">
-                <div class="tile_padding">
-                    <div class="tile dummy">
-                        <h1>day 1</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay">
-                    <div id="newentry">
-                        <div class="newheader">
-                            <h2 class="entry-title">Add New Post</h2>
-                            <i class="fa fa-close closeheader"></i>
-                        </div>
-                        <div class="timeline-image">
-                            <img src="images/balloon.jpg" alt="Picture">
-                        </div>
-                        <form id="entry">
-                            <p><input type="file" id="entry-image"></p>
-                            <div class="input">
-                               <input id="entry-text" type="text" placeholder="Add a comment" required />
-                                <span><i class="fa fa-user"></i></span>
-                            </div>
-                            <div class="input">
-                               <input id="entry-place" type="text" placeholder="Trip place" required />
-                                <span><i class="fa fa-home"></i></span>
-                            </div>
-                            <div class="input">
-                               <input id="entry-tag" type="text" placeholder="Trip tags" required />
-                                <span><i class="fa fa-tag"></i></span>
-                            </div>
-                            <div class="input">
-                               <input id="entry-geo" type="text" placeholder="Geoloc" required />
-                                <span><i class="fa fa-map-marker"></i></span>
-                            </div>
-                            <p><input class="submit_btn" type="submit"></p>
-                        </form>
-                    </div>
-            </div>
-		</div>
-        <div class="box">
-            <div class="btn_select" id="add_photos" onClick="addPhoto()">
-                <input id="inputFile" type="file">
-                <i class="fa fa-lg fa-photo"></i>
-            </div>
-            <div class="btn_select" id="add_text" onClick="addText()">
-                <i class="fa fa-lg fa-header"></i>
-            </div>
-            <div class="btn_select" id="add_icons" onClick="addTags()">
-                <i class="fa fa-lg fa-tag"></i>
-            </div>
-            <div class="btn_select" id="add_location" onclick="addLocation()">
-                <i class="fa fa-lg fa-map-marker"></i>
-            </div>
-            <div class="btn_selectbig" id="add_media">
-                <i class="fa fa-lg fa-plus"></i>
-            </div>
-        </div>
-	</div>
-    <div id="details_area">
-          <div class="header">
-            <i id="details_back" class="fa  fa-chevron-left"></i>
-            <h1 id="entry_entry_name">Entry's Name</h1>
-        </div>
-          <div id="details_container">
-            <ul id="entry_things"></ul>
-          </div>
+
+    <div id="map">
     </div>
-    <div id="addoredit_trip_area">
-        <div id="header_addoredit">
-            <i id="details_back" class="fa fa-chevron-left"></i>
-            <h1 id="edit_trip_name"></h1>
-        </div>
-        <div id="newtrip">
-            <form id="trip">
-                <p><input type="file" id="trip-image"></p>
-                <p>name<br><input id="trip-name" type="text"></p>
-                <p>description<br><input id="trip-description" type="text"></p>
-                <p>dates <input id="trip-date-start" placeholder="from" type="date"> to <input id="trip-date-finish" placeholder="to" type="date"></p>
-                <p>collaborators<input id="trip-collaborator" type="text"></p>
-                <p><input type="submit"></p>
-            </form>
+
+    <div id="menu">
+        <ul id="menu_list">
+            <li>Trips
+                <a href="#map"></a>
+            </li>
+            <li>Trending
+                <a href="#"></a>
+            </li>
+            <li>Profile
+                <a href="#"></a>
+            </li>
+            <li>Friends
+                <a href="#"></a>
+            </li>
+            <li>Settings
+                <a href="#"></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="page" id="homePage">
+        <div id="thisweek_content">
+            <div id="thisweek_title">
+                <p>This week you and your friends...</p>
+            </div>
+            <div class="row row_complex">
+                <div class="column2 row23" id="capadoccia"></div>
+                <div class="column2">
+                    <div class="row2 yellow photosThisWeek">
+                        <img class="home_icon" src="images/photo_icon.png">
+                        <p class="bignumber">22</p>
+                    </div>
+                    <div class="row2 blue locationsThisWeek">
+                        <img class="home_icon2" src="images/map.png">
+                        <p class="bignumber">4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row row_paris">
+                <p class="row_big_letters">Paris 5 friends</p>
+            </div>
+            <div class="row row_miles">
+                <p class="row_big_letters">1,500 miles</p>
+            </div>
+            <div class="row row_new">
+                <p class="row_big_letters">something cool</p>
+            </div>
         </div>
     </div>
-      
+
+    <div class="page" id="markerPopup">
+        <div id="user_info">
+            <div class="user_text">
+                <div class="user_image" id="postUserImage"></div>
+                <h1 class="foto_description" id="foto_description">Sydney is such an amazing place! Everyone should go there at least once in a lifetime!</h1>
+            </div>
+            <div class="name_n_date">
+                <h1 class="postPlace" id="postPlace">Cancun, Mexico</h1>
+                <h1 class="postData" id="postData">1 h ago</h1>
+            </div>
+        </div>
+        <div id="post_info">
+        </div>
+        <div id="like_comment">
+            <div id="like"><i id="like_btn" class="fa fa-heart-o">&nbsp;&nbsp;&nbsp;</i>13</div>
+            <div id="comment"><i id="comment_btn" class="fa fa-comment-o">&nbsp;&nbsp;&nbsp;</i>2</div>
+        </div>
+        <div class="carrousel">
+            <div class="comment_item">
+                <div class="user_text">
+                    <div class="user_image" id="postUserImageC1"></div>
+                    <h1 class="foto_description" id="foto_descriptionC">Sydney is such an amazing place! Everyone should go there at least once in a lifetime!</h1>
+                </div>
+                <div class="name_n_date">
+                    <h1 class="postPlace" id="postPlaceC">Cancun, Mexico</h1>
+                    <h1 class="postData" id="postDataC">1 h ago</h1>
+                </div>
+            </div>
+            <div class="comment_item">
+                <div class="user_text">
+                    <div class="user_image" id="postUserImageC2"></div>
+                    <h1 class="foto_description" id="foto_description">Sydney is such an amazing place! Everyone should go there at least once in a lifetime!</h1>
+                </div>
+                <div class="name_n_date">
+                    <h1 class="postPlace" id="postPlace">Cancun, Mexico</h1>
+                    <h1 class="postData" id="postData">1 h ago</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="profilePage">
+        <div id="user_info">
+            <div class="user_image" id="profileUserImage">
+                <img src="images/virginia.png">
+            </div>
+            <div id="user_text">
+                <h1>Gimena</h1>
+                <h1>Friends since 2012</h1>
+            </div>
+        </div>
+        <div id="mini_map">
+        </div>
+        <div id="stats">
+            <div class="stats_tile a"></div>
+            <div class="stats_tile b"></div>
+            <div class="stats_tile c"></div>
+            <div class="stats_tile d"></div>
+        </div>
+    </div>
+
+    <div class="page" id="makePost">
+        <!--   <p class="steps">Step 1. Select your trip's location</p> -->
+        <div id="add_location" class="add_label off" tabindex="1">
+            <i class="fa fa-map-marker pin"></i><span id="add_loc_text">Add Location</span>
+            <div id="loc_dropdown" class="dropdown"></div>
+        </div>
+        <!--    <p class="add_label">Step 2. Select photos</p>  -->
+        <div class="container photo_container_ftu">
+            <div class="photo_container_ftu_content">
+              <img class="photo_upload_img" src="images/photo_icon.png">
+              <p class="photo_upload_text">Choose up to six photos!</p>
+            </div>
+            <input type="file" id="inputFile" name="file[]" multiple>
+        </div>
+        <div class="photo_container">
+        </div>
+        <!-- <p class="add_label">Step 3. Add some comments</p>  -->
+        <div class="container" style="width:100%">
+        <textarea class="create_post_textarea" placeholder="Enter your awesome notes here!"></textarea>
+        </div>
+        <!-- <p class="add_label">Step 4. Add tags</p>  -->
+        <div class="container tag_container">
+            <div class="tag tag_1"></div>
+            <div class="tag tag_2"></div>
+            <div class="tag tag_3"></div>
+            <div class="tag tag_4"></div>
+            <div class="tag tag_5"></div>
+            <div class="tag tag_6"></div>
+            <div class="tag tag_7"></div>
+            <div class="tag tag_8"></div>
+        </div>
+        <p class="add_label2">Share on:</p>
+        <div class="container socialmed_container">
+            <div class="socialm_btn btn_off">Facebook</div>
+            <div class="socialm_btn btn_off">Twitter</div>
+            <div class="socialm_btn btn_off">Instagram</div>
+            <div class="socialm_btn btn_off">Pinterest</div>
+        </div>
+        <div class="button_bottom">
+            post memory
+        </div>
+    </div>
+    <div class="page" id="photos_week">
+        <div class="column"> 
+       </div>
+    </div>
+    <!--Scripts-->
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery/jquery-ui.min.js"></script>
-    <script src="js/swiper.jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
-    <script src="js/moment.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/handlebars-v4.0.2.js"></script>
+   <!--<script src="js/handlebar_templates.js"></script> -->
+    <script src="js/maps.js"></script>
     <script src="js/uifunction.js"></script>
-  </body>
+    <script src="js/database.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9I1PqBH3s8Z3Qgg-5CGgPmc2Q9fi5yg&libraries=places&callback=initMap"></script>
+    <script id="test-template" type="text/x-handlebars-template">
+    <div class="group" id="{{id}}">
+        <div class='left'>
+            <div class="large-box" style="background-image:url({{image1}})">
+              <!--  <img src="{{image1}}"> -->
+            </div>
+        </div>
+        <div class='right' >
+            <div class="box" style="background-image:url({{image2}})"></div>
+            <div class="box" style="background-image:url({{image3}})"></div>
+        </div>
+    </div>
+    
+    <div class="group">
+        <div class='left'>
+            <div class="box" style="background-image:url({{image4}})"></div>
+            <div class="box" style="background-image:url({{image5}})"></div>
+        </div>
+        <div class='right'>
+            <div class="large-box" style="background-image:url({{image6}})"></div>
+        </div>
+    </div>
+</script>
+</body>
+
 </html>
