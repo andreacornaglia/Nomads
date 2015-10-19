@@ -92,17 +92,44 @@ $(document).ready(function () {
         var urls =[];
         var anyWindow = window.URL || window.webkitURL;
 
-            for(var i = 0; i < fileList.length; i++){
-              var objectUrl = anyWindow.createObjectURL(fileList[i]);
-              /*
-              $('.photo_container').append('<img class="photo_thumbnails" src="' + objectUrl + '" />');*/
-              urls[i] = objectUrl;  
-                
-              window.URL.revokeObjectURL(fileList[i]);
-            }
-            console.log(objectUrl);
+        for(var i = 0; i < fileList.length; i++){
+          var objectUrl = anyWindow.createObjectURL(fileList[i]);              
+          urls[i] = objectUrl;  
+          window.URL.revokeObjectURL(fileList[i]);
         }
-    
+        var template = Handlebars.compile($("#test-template").html());
+        var obj = {
+            image1:urls[0],
+            image2:urls[1], 
+            image3:urls[2], 
+            image4:urls[3],
+            image5:urls[4],
+            image6:urls[5]
+        }
+        $('.photo_container_ftu').css('display','none');
+        var html = template(obj);
+        $(".photo_container").append(html);
+    }
+        /*switch (urls.length) {
+            case 0:
+                break;
+            case 1:
+                $('.photos_container').append('<div class="grid1" style="background-image:url('+urls[0]+')"></div>');
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            default:
+                alert("sorry, you can only upload up to six photos");
+        }*/
+
     /*alternative way of uploading a picture*/
     
     

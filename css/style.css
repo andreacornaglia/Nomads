@@ -593,6 +593,10 @@ body.start #homePage{
     position: relative;
 }
 
+.photo_container {
+    width: 100%;
+}
+
 .photo_thumbnails{
     width: 100px;
     height: 100px;
