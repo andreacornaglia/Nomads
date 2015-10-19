@@ -5,6 +5,7 @@ var map2;
 var service;
 var markerHere;
 var sliderOn = false;
+var markerCallbacks = [];
 
 var styles = [
         {
@@ -267,7 +268,7 @@ function initMap(showPhotos) {
         zoom: 1,
         center: {
             lat: 0,
-            lng: 0
+            lng: -30
         },
         disableDefaultUI: true,
         mapTypeControlOptions: {
@@ -313,7 +314,8 @@ function initMap(showPhotos) {
         });
 
         //making custom marker clickable
-        markerPopup.addListener('click', makeMarkerCallback(markers[i], markerPopup, map));
+        markerCallbacks[i] = makeMarkerCallback(markers[i], markerPopup, map);
+        markerPopup.addListener('click', markerCallbacks[i]);
     }
 
 }
@@ -325,9 +327,11 @@ function makeMarkerCallback(thisMarker, markerPopup, map) {
         $("#lefticon").css('display', 'none');
         $("#headerTitle").html(thisMarker.name + "'s Trip");
         $("#postUserImage").css('background-image', 'url(' + thisMarker.profileImage + ')');
+        $("#post_info").css('background-image', 'url(' + thisMarker.postImages[0] + ')');
         $("#postName").html(thisMarker.name);
         $("#postData").html(thisMarker.postDate);
         $("#postPlace").html(thisMarker.place);
+        $("#foto_description").html(thisMarker.postComment);
         var latLng = markerPopup.getPosition(); // returns LatLng object
         map.setCenter(latLng);
         map.setZoom(7);

@@ -2,47 +2,52 @@
 var markers = [
    {
       "name":"Gime",
-      "latitude":"19.432828",
-      "longitude":"-99.116490",
-      "place":"Mexico City, Mexico",
+      "latitude":"47.620499",
+      "longitude":"-122.349139",
+      "place":"Seattle, US",
       "profileImage":"images/gime.png",
       "postDate":"2h ago",
-      "postImages":["images/sydney.jpg"]
+      "postImages":["images/8.jpg", "images/9.jpg", "images/16.jpg"],
+       "postComment":"In love with Seattle! This city has so much to see and do!"
    },
    {
     "name":"Florencia",
-      "latitude":"39.307587",
-      "longitude":"-123.798708",
-      "place":"Mendocino, USA",
+      "latitude":"38.648559",
+      "longitude":"34.844781",
+      "place":"Capadoccia, Turkey",
       "profileImage":"images/florencia.png",
       "postDate":"1d ago",
-      "postImages":["images/sydney.jpg"]
+      "postImages":["images/2.jpg"],
+      "postComment":"This balloon ride is an unforgettable experience! Turkey at its best!"
    },
    {
-       "name":"James",
-      "latitude":"-13.163141",
-      "longitude":"-72.544539",
-      "place":"Machu Picchu, Peru",
+      "name":"James",
+      "latitude":"21.478409",
+      "longitude":"-157.994109",
+      "place":"Hawaii, US",
       "profileImage":"images/james.png",
       "postDate":"5h ago",
-      "postImages":["images/sydney.jpg"]
+      "postImages":["images/hw1.jpg","images/hw2.jpg","images/hw3.jpg"],
+       "postComment":"Colors from Hawaii"
    },
    {
        "name":"Charles",
       "latitude":"48.857052",
       "longitude":"2.347385",
-      "place":"Paris, France",
+      "place":"Venice, Italy",
       "profileImage":"images/charles.png",
       "postDate":"3d ago",
-      "postImages":["images/sydney.jpg"]
+      "postImages":["images/ven1.jpg", "images/ven2.jpg", "images/ven3.jpg"],
+       "postComment":"Come to Venice during Carnival. Crowded but so interesting!"
    },
    {
        "name":"Clara",
-      "latitude":"-33.890",
-      "longitude":"151.274",
-      "place":"Sydney, Australia",
+      "latitude":"-33.452997",
+      "longitude":"-70.661453",
+      "place":"Santiago, Chile",
       "profileImage":"images/clara.png",
       "postDate":"8h ago",
-      "postImages":["images/sydney.jpg"]
+      "postImages":["images/chl1.jpg", "images/chl2.jpg", "images/chl3.jpg"],
+       "postComment":"Santiago is a small big city. Cute and modern."
    }
 ]

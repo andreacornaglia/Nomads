@@ -160,7 +160,7 @@ $(document).ready(function () {
         console.log("tapping social media buttons");
         $(this).toggleClass("btn_on");
     })
-    $('#comment_btn').on('click', function() {
+    $('#comment_btn').on('click touchstart', function(){
         if (!sliderOn) {
             return;
         }
@@ -172,6 +172,11 @@ $(document).ready(function () {
           );
          $('.carrousel').slick('slickGoTo',2);
         }
+    });
+    
+    $("#capadoccia").on('click touchstart', function(){
+        console.log("Capadoccia clicked on!");
+        markerCallbacks[1]();
     });
         
     
