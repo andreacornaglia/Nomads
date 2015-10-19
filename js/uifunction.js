@@ -114,16 +114,15 @@ $(document).ready(function () {
     var template = Handlebars.compile($("#test-template").html());
     var url = "../images/"
     
-    for (var i = 0; i < 19; i+=6) {
+    for (var i = 0; i < 23; i+=6) {
         var obj = {
             id:33,
-            title:url+i+".jpg",
-            image1:url+(i+1)+".jpg", 
-            image2:url+(i+2)+".jpg", 
-            image3:url+(i+3)+".jpg",
-            image4:url+(i+4)+".jpg",
-            image5:url+(i+5)+".jpg",
-            image6:url+(i+6)+".jpg"
+            image1:url+(i)+".jpg",
+            image2:url+(i+1)+".jpg", 
+            image3:url+(i+2)+".jpg", 
+            image4:url+(i+3)+".jpg",
+            image5:url+(i+4)+".jpg",
+            image6:url+(i+5)+".jpg"
         }
         
         var html = template(obj);

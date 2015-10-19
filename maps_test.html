@@ -56,12 +56,12 @@
                 <div class="column2 row23"></div>
                 <div class="column2">
                     <div class="row2 yellow photosThisWeek">
+                        <img class="home_icon" src="images/photo_icon.png">
                         <p class="bignumber">22</p>
-                        <p class="bigtitle">fotos</p>
                     </div>
-                    <div class="row2 blue">
+                    <div class="row2 blue locationsThisWeek">
+                        <img class="home_icon2" src="images/map.png">
                         <p class="bignumber">4</p>
-                        <p class="bigtitle">cities</p>
                     </div>
                 </div>
             </div>
@@ -144,27 +144,29 @@
             <div id="loc_dropdown" class="dropdown"></div>
         </div>
         <!--    <p class="add_label">Step 2. Select photos</p>  -->
-        <div class="container photo_container">
-            <div id="photos_outline">
-                <input type="file" id="inputFile" name="file[]" multiple>
+        <div class="container photo_container_ftu">
+            <div class="photo_container_ftu_content">
+              <img class="photo_upload_img" src="images/photo_icon.png">
+              <p class="photo_upload_text">Choose up to six photos!</p>
             </div>
+            <input type="file" id="inputFile" name="file[]" multiple>
+        </div>
+        <div class="photo_container_uploaded">
         </div>
         <!-- <p class="add_label">Step 3. Add some comments</p>  -->
+        <div class="container" style="width:100%">
         <textarea class="create_post_textarea" placeholder="Enter your awesome notes here!"></textarea>
+        </div>
         <!-- <p class="add_label">Step 4. Add tags</p>  -->
         <div class="container tag_container">
             <div class="tag tag_1"></div>
             <div class="tag tag_2"></div>
-            <div class="tag tag_1"></div>
-            <div class="tag tag_2"></div>
-            <div class="tag tag_2"></div>
-            <div class="tag tag_1"></div>
-            <div class="tag tag_2"></div>
-            <div class="tag tag_1"></div>
-            <div class="tag tag_1"></div>
-            <div class="tag tag_2"></div>
-            <div class="tag tag_1"></div>
-            <div class="tag tag_2"></div>
+            <div class="tag tag_3"></div>
+            <div class="tag tag_4"></div>
+            <div class="tag tag_5"></div>
+            <div class="tag tag_6"></div>
+            <div class="tag tag_7"></div>
+            <div class="tag tag_8"></div>
         </div>
         <p class="add_label2">Share on:</p>
         <div class="container socialmed_container">
@@ -195,23 +197,23 @@
     <script id="test-template" type="text/x-handlebars-template">
     <div class="group" id="{{id}}">
         <div class='left'>
-            <div class="large-box">
-                <img src="{{image1}}">
+            <div class="large-box" style="background-image:url({{image1}})">
+              <!--  <img src="{{image1}}"> -->
             </div>
         </div>
-        <div class='right'>
-            <div class="box"><img src="{{image2}}"></div>
-            <div class="box"><img src="{{image3}}"></div>
+        <div class='right' >
+            <div class="box" style="background-image:url({{image2}})"></div>
+            <div class="box" style="background-image:url({{image3}})"></div>
         </div>
     </div>
     
     <div class="group">
         <div class='left'>
-            <div class="box"><img src="{{image4}}"></div>
-            <div class="box"><img src="{{image5}}"></div>
+            <div class="box" style="background-image:url({{image4}})"></div>
+            <div class="box" style="background-image:url({{image5}})"></div>
         </div>
         <div class='right'>
-            <div class="large-box"><img src="{{image6}}"></div>
+            <div class="large-box" style="background-image:url({{image6}})"></div>
         </div>
     </div>
 </script>
