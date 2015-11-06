@@ -22,6 +22,10 @@
         <i class="fa fa-navicon" id="lefticon"></i>
         <h1 id="headerTitle">Nomads</h1>
         <i id="righticon" class="fa fa-plus"></i>
+        <div id="filter">
+            <div class="filter_box filter_on" id="this_week">This week</div>
+            <div class="filter_box filter_off" id="all_times">All times</div>
+        </div>
     </div>
 
     <div id="map">
@@ -29,10 +33,10 @@
 
     <div id="menu">
         <ul id="menu_list">
-            <li>Trips
+            <li>Trending
                 <a href="#map"></a>
             </li>
-            <li>Trending
+            <li>Trips
                 <a href="#"></a>
             </li>
             <li>Profile
@@ -41,17 +45,11 @@
             <li>Friends
                 <a href="#"></a>
             </li>
-            <li>Settings
-                <a href="#"></a>
-            </li>
         </ul>
     </div>
 
     <div class="page" id="homePage">
         <div id="thisweek_content">
-            <div id="thisweek_title">
-                <p>This week you and your friends...</p>
-            </div>
             <div class="row row_complex">
                 <div class="column2 row23" id="capadoccia"></div>
                 <div class="column2">
@@ -60,20 +58,25 @@
                         <p class="bignumber">22</p>
                     </div>
                     <div class="row2 blue locationsThisWeek">
-                        <img class="home_icon2" src="images/map.png">
+                        <img class="home_icon2" src="images/map5.png">
                         <p class="bignumber">4</p>
                     </div>
                 </div>
             </div>
-            <div class="row row_paris">
-                <p class="row_big_letters">Paris 5 friends</p>
+            <div class="row row_complex">
+                <div class="column2">
+                    <div class="row2 yellow photosThisWeek">
+                        <img class="tag tag_home" src="images/tag4.png">
+                        <p class="bignumber">3</p>
+                    </div>
+                    <div class="row2 blue locationsThisWeek">
+                        <img class="tag tag_home" src="images/tag6.png">
+                        <p class="bignumber">2</p>
+                    </div>
+                </div>
+                <div class="column2 row23" id="seattle"></div>
             </div>
-            <div class="row row_miles">
-                <p class="row_big_letters">1,500 miles</p>
-            </div>
-            <div class="row row_new">
-                <p class="row_big_letters">something cool</p>
-            </div>
+            
         </div>
     </div>
 
@@ -144,7 +147,7 @@
             <div id="loc_dropdown" class="dropdown"></div>
         </div>
         <!--    <p class="add_label">Step 2. Select photos</p>  -->
-        <div class="container photo_container_ftu">
+        <div class="photo_container_ftu">
             <div class="photo_container_ftu_content">
               <img class="photo_upload_img" src="images/photo_icon.png">
               <p class="photo_upload_text">Choose up to six photos!</p>
@@ -159,21 +162,45 @@
         </div>
         <!-- <p class="add_label">Step 4. Add tags</p>  -->
         <div class="container tag_container">
-            <div class="tag tag_1"></div>
-            <div class="tag tag_2"></div>
-            <div class="tag tag_3"></div>
-            <div class="tag tag_4"></div>
-            <div class="tag tag_5"></div>
-            <div class="tag tag_6"></div>
-            <div class="tag tag_7"></div>
-            <div class="tag tag_8"></div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_1"></div>
+              <span>#camping</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_2"></div>
+              <span>#hiking</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_3"></div>
+              <span>#plane</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_4"></div>
+              <span>#roadtrip</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_5"></div>
+              <span>#beach</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_6"></div>
+              <span>#museum</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_7"></div>
+              <span>#landmark</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_inactive tag_8"></div>
+              <span>#show</span>
+            </div>
         </div>
-        <p class="add_label2">Share on:</p>
+        <!--<p class="add_label2">Share on:</p>-->
         <div class="container socialmed_container">
-            <div class="socialm_btn btn_off">Facebook</div>
-            <div class="socialm_btn btn_off">Twitter</div>
-            <div class="socialm_btn btn_off">Instagram</div>
-            <div class="socialm_btn btn_off">Pinterest</div>
+            <div class="socialm_btn btn_off"><i class="fa fa-facebook"></i><span class="spam_media">Facebook</span></div>
+            <div class="socialm_btn btn_off"><i class="fa fa-twitter"></i><span class="spam_media">Twitter</span></div>
+            <div class="socialm_btn btn_off"><i class="fa fa-instagram"></i><span class="spam_media">Instagram</span></div>
+            <div class="socialm_btn btn_off"><i class="fa fa-pinterest"></i><span class="spam_media">Pinterest</span></div>
         </div>
         <div class="button_bottom">
             post memory
@@ -184,14 +211,15 @@
        </div>
     </div>
     <!--Scripts-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/handlebars-v4.0.2.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v4.0.2.js"></script>
    <!--<script src="js/handlebar_templates.js"></script> -->
-    <script src="js/maps.js"></script>
-    <script src="js/uifunction.js"></script>
-    <script src="js/database.js"></script>
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/uifunction.js"></script>
+    <script type="text/javascript" src="js/database.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9I1PqBH3s8Z3Qgg-5CGgPmc2Q9fi5yg&libraries=places&callback=initMap"></script>
+    <script type="text/javascript" src="js/markerclusterer_compiled.js"></script>
     <script id="test-template" type="text/x-handlebars-template">
     <div class="group" id="{{id}}">
         <div class='left'>

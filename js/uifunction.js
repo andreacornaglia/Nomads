@@ -62,13 +62,14 @@ $(document).ready(function () {
                 initMap(true);
                 window.mapObject.setZoom(2);
                 $("#header").removeClass().addClass("transparent");
+                $("#lefticon").removeClass().addClass("fa fa-chevron-left");
                 isMapFullsize = true;
             }
     });
 
     $(".start").on('click touchstart', '#lefticon', function () {
         $("body").removeClass().addClass("body-menu");
-        $("#righticon").removeClass("fa-plus").addClass("fa-close");
+        $("#lefticon").removeClass().addClass("fa-close");
     });
 
     $("body").on('click touchstart', '#righticon', function () {
@@ -167,7 +168,7 @@ $(document).ready(function () {
         else {
             console.log("tapping the comment btn!");
           $('.carrousel').slick('slickAdd',
-                 '<div class="comment_item"><div class="user_text"><div class="user_image" id="postUserImageC1"></div><textarea class="foto_description comment_textarea" placeholder="Add your comments here!"></textarea></div><div class="name_n_date"><h1 class="postPlace" id="postPlaceC">Andrea C</h1><h1 class="postData" id="postDataC">now</h1></div></div>'
+                 '<div class="comment_item"><div class="user_text"><textarea class="foto_description comment_textarea" placeholder="Add your comments here!"></textarea></div><div class="submit_comment_post"><div class="submit_comment_post_btn">Submit comment</div></div><div class="name_n_date"><h1 class="postPlace" id="postPlaceC">Andrea C</h1><h1 class="postData" id="postDataC">now</h1></div></div>'
           
           );
          $('.carrousel').slick('slickGoTo',2);
@@ -177,6 +178,21 @@ $(document).ready(function () {
     $("#capadoccia").on('click touchstart', function(){
         console.log("Capadoccia clicked on!");
         markerCallbacks[1]();
+    });
+    
+    $('#filter').on('click touchstart','.filter_off', function(){
+        $('.filter_on').removeClass('filter_on').addClass('filter_off');
+        $(this).removeClass('filter_off').addClass('filter_on');
+    })
+    
+    $('.tag_container').on('click touchstart','.tag_inactive', function(){
+        $(this).removeClass('tag_inactive');
+        $(this).addClass('tag_active');
+    })
+    
+    $('.tag_container').on('click touchstart','.tag_active', function(){
+        $(this).removeClass('tag_active');
+        $(this).addClass('tag_inactive');
     });
         
     

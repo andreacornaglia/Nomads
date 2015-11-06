@@ -158,6 +158,9 @@ function centerMap(){
     });
     map2 = new google.maps.Map(document.getElementById('map'),
         mapOptions2);
+    //adding cluster
+    var mcOptions = {gridSize: 50, maxZoom: 15};
+    var mc = new MarkerClusterer(map2, [], mcOptions);
     window.mapObject = map;
     map2.mapTypes.set('map_style', styledMap);
     map2.setMapTypeId('map_style');
@@ -165,7 +168,7 @@ function centerMap(){
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 10,
                 fillColor: '#FF7881',
-                fillOpacity: 1,
+                fillOpacity: .9,
                 strokeWeight: 0
     };
     var markerHere = new google.maps.Marker({
@@ -302,7 +305,7 @@ function initMap(showPhotos) {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 10,
                 fillColor: '#FF7881',
-                fillOpacity: 1,
+                fillOpacity: .9,
                 strokeWeight: 0
             };
         }
@@ -324,7 +327,8 @@ function makeMarkerCallback(thisMarker, markerPopup, map) {
     return function () {
         //$(document.body).removeClass();
         $(document.body).removeClass().addClass("open_post");
-        $("#lefticon").css('display', 'none');
+        $("#lefticon").removeClass().addClass('fa fa-chevron-left');
+        $("#righticon").css('display', 'none');
         $("#headerTitle").html(thisMarker.name + "'s Trip");
         $("#postUserImage").css('background-image', 'url(' + thisMarker.profileImage + ')');
         $("#post_info").css('background-image', 'url(' + thisMarker.postImages[0] + ')');
