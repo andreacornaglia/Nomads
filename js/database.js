@@ -18,7 +18,7 @@ var markers = [
       "profileImage":"images/florencia.png",
       "postDate":"1d ago",
       "postImages":["images/2.jpg"],
-      "postComment":"This balloon ride is an unforgettable experience! Turkey at its best!"
+      "postComment":"This balloon ride is an amazing experience! Turkey at its best!"
    },
    {
       "name":"James",
@@ -49,7 +49,7 @@ var markers = [
       "postDate":"8h ago",
       "postImages":["images/chl1.jpg", "images/chl2.jpg", "images/chl3.jpg"],
        "postComment":"Santiago is a small big city. Cute and modern."
-   },
+   }/*,
     {
       "name":"Rita",
       "latitude":"40",
@@ -168,7 +168,7 @@ var markers = [
       "profileImage":"images/florencia.png",
       "postDate":"1d ago",
       "postImages":["images/2.jpg"],
-      "postComment":"This balloon ride is an unforgettable experience! Turkey at its best!"
+      "postComment":"This balloon ride is an amazing experience! Turkey at its best!"
    },
    {
       "name":"Carlos",
@@ -199,5 +199,5 @@ var markers = [
       "postDate":"8h ago",
       "postImages":["images/chl1.jpg", "images/chl2.jpg", "images/chl3.jpg"],
        "postComment":"Santiago is a small big city. Cute and modern."
-   }
+   }*/
 ]

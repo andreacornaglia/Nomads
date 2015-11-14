@@ -7,6 +7,18 @@
          url('../fonts/Mathlete-Bulky-webfont.svg#mathletebulky') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../fonts/montserrat-light-webfont.eot');
+    src: url('../fonts/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-light-webfont.woff') format('woff'),
+         url('../fonts/montserrat-light-webfont.ttf') format('truetype'),
+         url('../fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
 }
 
@@ -36,7 +48,7 @@ h1{
 font-weight: normal;
 }
 
-body.start #header, body.map_fullsize #header {
+body.start #header, body.map_fullsize #header, .photos_this_week #header {
     background: #00425B;
     color:white;
 }
@@ -44,12 +56,18 @@ body.start #header, body.map_fullsize #header {
 
 body.open_post #header, body.map-top #header{
    position: absolute;
-   background: rgba(17,71,90,.75);
+   /*background: rgba(17,71,90,.75);*/
+   background: transparent;
    color: white;
 }
 
 #map{
     position: relative;
+}
+
+body.start .header_main {
+    height: 60px;
+    line-height: 60px;
 }
 
 
@@ -74,7 +92,7 @@ body.map_fullsize #map {
 
 body.map-top #map, body.open-post #map{
  top:0;
- height: "200px";
+ height: "129px";
 }
 
 body.map-top #makePost, body.open-post #markerPopup{
@@ -83,6 +101,10 @@ body.map-top #makePost, body.open-post #markerPopup{
     overflow-y: auto;
 }
 
+.header_main {
+    height: 60px;
+    line-height: 60px;
+}
 
 .page{
   width: 100%;
@@ -95,14 +117,36 @@ body.map-top #makePost, body.open-post #markerPopup{
 }
 
 #lefticon{
-    float:left;
+    line-height: 60px;
+    margin-left: 20px;
+}
+
+#righticon{
+    line-height: 60px;
+    margin-right: 20px;
+}
+
+.lefticon, .righticon {
+    width: 10%;
+    height: 60px;
+    float: left;
+}
+
+.lefticon {
+    text-align: left;
+}
+
+.righticon {
+    text-align: right;
 }
 
 .start #header{
-    padding: 20px 15px 10px 15px;
+    padding: 0;
+    /*top: 0;
+    position: fixed;*/
 }
 
-.start #header #filter{
+.start #header #filter, .map_fullsize #header #filter{
     display: inline-block;
     border-top: 1px solid white;
 }
@@ -115,7 +159,6 @@ body.map-top #makePost, body.open-post #markerPopup{
     z-index: 1000;
     font-size: 20px;
     width: 100%;
-    padding: 20px 15px;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -168,7 +211,7 @@ li{
   box-sizing: border-box;
   display: inline-block;
   padding: 20px;
-  background: url(../images/qm1.png) 10px 20px no-repeat, url(../images/qm2.png) 350px 70px no-repeat;
+  background: url(../images/qm1.png) 10px 10px no-repeat, url(../images/qm2.png) 360px 90px no-repeat;
     background-size: 30px;
 }
 .user_image{
@@ -176,14 +219,14 @@ li{
     width: 60px;
     height: 60px;
     background-size: 100%;
-    margin-left: 20px;
 }
 .user_text{
-  float:left;
-  font-size: 10px;
-  font-weight: normal;
-  width: 100%;
-  margin: 15px 0;
+    float: left;
+    font-size: 10px;
+    font-weight: normal;
+    width: 100%;
+    padding: 5px 0 5px 20px;
+    box-sizing: border-box;
 }
 
 .user_text h1{
@@ -211,24 +254,41 @@ li{
 #like_comment{
 	width:100%;
 	display:inline-block;
+    padding: 0px 20px;
+    box-sizing: border-box;
     color:#00425B;
     margin: 0;
-    padding: 0;
+    background: #FEE991;
 }
 
-#like, #comment{
-	width:50%;
+.small_tag{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: auto 5px;
+}
+
+#likec_tags, #like, #comment{
+	width:30%;
 	margin:0;
 	padding:10px 0;
     box-sizing: border-box;
-    border: 1px solid #00425B;
 	float:left;
 	text-align: center;
 }
 
+#like, #comment {
+    text-align: right;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+
 .name_n_date{
     display: inline-block;
-    width:100%;
+    width: 100%;
+    padding: 0 30px 0 20px;
+    box-sizing: border-box;
 }
 
 #like{
@@ -394,6 +454,12 @@ li{
     transition: all 0.3s ease-out;
     max-height: 0;
     overflow: hidden;
+    z-index: 10000;
+}
+
+.fa-chevron-down {
+    color: #FF7881;
+    margin-left: 30px;
 }
 
 .dropdown ul li{
@@ -411,7 +477,9 @@ li{
 .dropdown ul{
     background-color: white;
     margin-top: 0;
-    border: 2px solid #14475a;
+    border-bottom: 2px solid #14475a;
+    border-right: 2px solid #14475a;
+    border-left: 2px solid #14475a;
     padding: 20px;
     color: #14475A;
 }
@@ -511,7 +579,7 @@ body.start #homePage{
 .foto_description{
     padding: 0 0 0 20px;
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     float: left;
     width: 230px;
 }
@@ -581,7 +649,7 @@ body.start #homePage{
 
 .bignumber{
     padding-top: 40px;
-    font-size: 30px;
+    font-size: 40px;
     font-family: 'mathletebulky',sans-serif;
 }
 .bigtitle{}
@@ -600,9 +668,7 @@ body.start #homePage{
 }
 
 #righticon{
-    text-align: right;
-    width: 10%;
-    transform-origin: "center top";
+    
 }
 
 .row_miles{
@@ -616,6 +682,13 @@ body.start #homePage{
 
 .steps{
   margin: 20px;
+}
+
+.tag_container{
+    padding: 0;
+    color: #00425B;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 .container{
@@ -685,6 +758,7 @@ body.start #homePage{
 
 .tag_home {
     margin: 30px 20px 20px 30px;
+    float: left;
 }
 
 .socialmed_container{
@@ -695,7 +769,7 @@ body.start #homePage{
 
 body.map-top #map {
     top: 0;
-    height: 200px;
+    height: 129px;
 }
 
 body.open_post #homePage{
@@ -708,7 +782,7 @@ body.open_post #markerPopup{
 
 .carrousel {
     width: 100%;
-    height: 150px;
+    height: 120px;
 }
 
 
@@ -755,12 +829,18 @@ body.open_post #markerPopup{
 
 .create_post_textarea{
     width: 100%;
-    height: 120px;
+    height: 100px;
     border: none;
     box-sizing: border-box;
     font-size: 15px;
     font-family: 'Montserrat';
     border-bottom: 1px solid #00425B;
+    margin-bottom: 5px;
+}
+
+#textarea_feedback{
+    font-size: 13px;
+    padding-top: 10px;
 }
 
 .comment_textarea{
@@ -811,16 +891,8 @@ body.open_post #markerPopup{
   height: 0;
 }
 
-.photos_this_week #lefticon{
+.photos_this_week #righticon{
   display: none;
-}
-
-.photos_this_week #righticon, .map-top #righticon{
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    transform: rotate(45deg);
-    margin-left: 30px;
-    margin-top: -7px;
 }
 
 #photos_week{
@@ -937,19 +1009,28 @@ body.open_post #markerPopup{
 
 #filter{
     display: none;
-    margin-top: 15px;
-    padding-top: 15px;
-    display: block;
     width: 100%;
+    position: relative;
+    z-index:100;
+   /* padding-top: 5px;
+    padding-left: 10px;
+    display: block;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 10px;
+    margin-bottom: 10px;*/
 }
+
+.filter_box_container{
+    width: 100%;
+    float: left;
+    height: 57px;
+}
+
 .filter_box{
     float: left;
-    width: 46%;
+    width: calc(50% - 20px);
+    margin: 10px;
     padding: 10px;
-    margin: 5px;
     font-size: 14px;
     text-align: center;
     box-sizing: border-box;
@@ -958,9 +1039,21 @@ body.open_post #markerPopup{
     color:#00425B;
     text-transform: uppercase;
 }
-.filter_on{
-    background-color: white;
-    color:#00425B;
+
+
+.filter_selected{
+    padding-bottom: 20px;
+    border-bottom: 2px #fff solid;
+}
+
+.filter_dialogue {
+        display: none;
+        background: white;
+		margin: 0 10px;
+		clear: both;
+		padding: 10px;
+        position: absolute;
+        top: 57px;
 }
 
 .submit_comment_post {

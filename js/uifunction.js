@@ -75,7 +75,7 @@ $(document).ready(function () {
     $("body").on('click touchstart', '#righticon', function () {
         centerMap();
         $("body").removeClass("start").addClass("map-top");
-        $("#header").css('background-color', 'transparent');
+        $("#righticon").removeClass().addClass("fa fa-close");
         $("#headerTitle").html("New Post");
     });
 
@@ -137,6 +137,7 @@ $(document).ready(function () {
     $('.photosThisWeek').on('click touchstart', function(){
         $("body").removeClass().addClass("photos_this_week");
         $("#headerTitle").text("Photos from this week");
+        $("#lefticon").removeClass("fa-navicon").addClass("fa fa-chevron-left");
     })
     
     var template = Handlebars.compile($("#test-template").html());
@@ -180,10 +181,22 @@ $(document).ready(function () {
         markerCallbacks[1]();
     });
     
-    $('#filter').on('click touchstart','.filter_off', function(){
-        $('.filter_on').removeClass('filter_on').addClass('filter_off');
-        $(this).removeClass('filter_off').addClass('filter_on');
+    
+    /*$('#filter').on('click touchstart', function(){
+        $('.filter_dialogue').toggle();
+    });*/
+    var filteropen;
+    $('#filter').on('click touchstart','.filter_disabled', function(){                
+        $('.filter_dialogue').css('display','block');
+        $(this).removeClass('filter_disabled').addClass('filter_selected');
+        filteropen = true;
     })
+    
+    $('#filter').on('click touchstart','.filter_selected', function(){                         if (filteropen){
+            $('.filter_dialogue').css('display','none');
+            $(this).removeClass('filter_selected').addClass('filter_disabled');}
+    })
+    
     
     $('.tag_container').on('click touchstart','.tag_inactive', function(){
         $(this).removeClass('tag_inactive');
@@ -194,6 +207,40 @@ $(document).ready(function () {
         $(this).removeClass('tag_active');
         $(this).addClass('tag_inactive');
     });
-        
+
+    
+    var text_max = 99;
+    $('#textarea_feedback').html(text_max + ' characters remaining');
+
+    $('.create_post_textarea').keyup(function() {
+        var text_length = $('.create_post_textarea').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html(text_remaining + ' characters remaining');
+    });
+    
+    
+    $(".button_bottom").on('click touchstart', function(){
+        $("body").removeClass().addClass("map_fullsize");
+        $("html, body").animate({scrollTop:0}, 500);
+        $("#makePost").css('display','none');
+        if (!isMapFullsize) {
+                $("body").removeClass().addClass("map_fullsize");
+                initMap(true);
+                window.mapObject.setZoom(2);
+                $("#header").removeClass().addClass("transparent");
+                $("#lefticon").removeClass().addClass("fa fa-chevron-left");
+                isMapFullsize = true;
+            }
+    })
+    
+    $(".start").on('click touchstart', function(){
+        //$("html, body").scrollTo(0,0);
+        $("html, body").animate({scrollTop:0}, 500);
+    })
+    
+    //Navigation Code
+    
+    
     
 });

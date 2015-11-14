@@ -19,12 +19,53 @@
 <body class="start">
 
     <div id="header" class="white">
-        <i class="fa fa-navicon" id="lefticon"></i>
-        <h1 id="headerTitle">Nomads</h1>
-        <i id="righticon" class="fa fa-plus"></i>
+        <div class="header_main">
+          <div class="lefticon"><i class="fa fa-navicon" id="lefticon"></i></div>
+          <h1 id="headerTitle">Nomads</h1>
+          <div class="righticon"><i id="righticon" class="fa fa-plus"></i></div>
+        </div>
+        <div style="clear:both"></div>
         <div id="filter">
-            <div class="filter_box filter_on" id="this_week">This week</div>
-            <div class="filter_box filter_off" id="all_times">All times</div>
+            <div class="filter_box_container">
+                <div class="filter_box filter_disabled" id="this_week">This week <i class="fa fa-chevron-down"></i></div>
+                <div class="filter_box filter_disabled" id="all_times">All tags<i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="filter_dialogue">
+                <div class="tag_container">
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_1"></div>
+              <span>#camping</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_2"></div>
+              <span>#hiking</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_3"></div>
+              <span>#plane</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_4"></div>
+              <span>#roadtrip</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_5"></div>
+              <span>#beach</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_6"></div>
+              <span>#museum</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_7"></div>
+              <span>#landmark</span>
+            </div>
+            <div class="tag_container_b">
+              <div class="tag tag_active tag_8"></div>
+              <span>#show</span>
+            </div>
+        </div>
+            </div>
         </div>
     </div>
 
@@ -94,6 +135,10 @@
         <div id="post_info">
         </div>
         <div id="like_comment">
+            <div id="likec_tags">
+                <img class="small_tag" src="images/tag2.png">
+                <img class="small_tag" src="images/tag6.png">
+            </div>
             <div id="like"><i id="like_btn" class="fa fa-heart-o">&nbsp;&nbsp;&nbsp;</i>13</div>
             <div id="comment"><i id="comment_btn" class="fa fa-comment-o">&nbsp;&nbsp;&nbsp;</i>2</div>
         </div>
@@ -159,6 +204,7 @@
         <!-- <p class="add_label">Step 3. Add some comments</p>  -->
         <div class="container" style="width:100%">
         <textarea class="create_post_textarea" placeholder="Enter your awesome notes here!"></textarea>
+        <span id="textarea_feedback"></span>
         </div>
         <!-- <p class="add_label">Step 4. Add tags</p>  -->
         <div class="container tag_container">
