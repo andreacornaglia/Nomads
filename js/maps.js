@@ -40,7 +40,7 @@ var styles = [
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#00425B"
+                "color": "#13475A"
             }
         ]
     },
@@ -49,16 +49,16 @@ var styles = [
         "elementType": "all",
         "stylers": [
             {
-                "visibility": "simplified"
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "administrative.country",
-        "elementType": "geometry",
+        "elementType": "geometry.stroke",
         "stylers": [
             {
-                "visibility": "on"
+                "color": "#13475a"
             }
         ]
     },
@@ -157,7 +157,7 @@ var styles = [
         "elementType": "all",
         "stylers": [
             {
-                "color": "#00425B"
+                "color": "#13475A"
             },
             {
                 "visibility": "on"

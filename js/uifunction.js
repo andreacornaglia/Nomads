@@ -3,7 +3,8 @@ var isMapFullsize = false;
 
 $(document).ready(function () {
 
-    $(".header").on("click touchstart", ".closeheader", function () {
+    $(".header").on("click touchstart", ".closeheader", function(e){
+    e.stopPropagation(); e.preventDefault();
         console.log(foooooo);
         $("#markerPopup").animate({
             top: "500px"
@@ -11,50 +12,58 @@ $(document).ready(function () {
         $("#markerPopup").css("display", "none");
     });
 
-    $("#entry_next").on('click touchstart', function () {
+    $("#entry_next").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("#finalizePost").animate({
             top: "0px"
         }, 500);
         $("#finalizePost").css('display', 'block');
     })
 
-    $(".tile_padding").on('click touchstart', function () {
+    $(".tile_padding").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $(this).children().children().toggle();
         $(this).children().toggleClass("selected_tile");
         var selected = $(this).children().css("background-image");
         $("#selected_photos").append("<div class='tile_padding_small'><div class='tile' style='background-image:" + selected + "'></div></div>");
     })
 
-    $("#loc_dropdown").on('click touchstart', "ul", function () {
+    $("#loc_dropdown").on('click touchstart', "ul", function(e){
+    e.stopPropagation(); e.preventDefault();
         var text = $(this).children().html();
         console.log(text);
         $("#loc_dropdown").css('overflow', 'hidden');
         $("#add_loc_text").html(text);
     })
 
-    $("#makePost").on('click touchstart','.off', function () {
+    $("#makePost").on('click touchstart','.off', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("#loc_dropdown").css('overflow', 'visible');
         $("#add_location").removeClass("off").addClass("on");
     });
     
-    $("#makePost").on('click touchstart','.on', function () {
+    $("#makePost").on('click touchstart','.on', function(e){
+    e.stopPropagation(); e.preventDefault();
         console.log("I'm clicking on!")
         $("#loc_dropdown").css('overflow', 'hidden');
         $("#add_location").removeClass("on").addClass("off");
     });
 
 
-    $("#menu").on('click touchstart', function () {
+    $("#menu").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $(this).css('display', 'none');
     });
 
-    $("#postUserImage").on('click touchstart', function () {
+    $("#postUserImage").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("#profilePage").css('display', 'block');
         $("#profilePage").css('z-index', '10000000');
 
     });
 
-    $(".start").on('click touchstart', '#map', function () {
+    $(".start").on('click touchstart', '#map', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("#homePage").css("display", "none");
         
             if (!isMapFullsize) {
@@ -67,19 +76,23 @@ $(document).ready(function () {
             }
     });
 
-    $(".start").on('click touchstart', '#lefticon', function () {
+    $("body").on('click touchstart', '.fa-navicon', function(e){
+        e.stopPropagation(); e.preventDefault();
         $("body").removeClass().addClass("body-menu");
-        $("#lefticon").removeClass().addClass("fa-close");
+        $("#lefticon").removeClass().addClass("fa fa-close");
+        $("#righticon").removeClass();
     });
 
-    $("body").on('click touchstart', '#righticon', function () {
+    $("body").on('click touchstart', '#righticon', function(e){
+    e.stopPropagation(); e.preventDefault();
         centerMap();
         $("body").removeClass("start").addClass("map-top");
         $("#righticon").removeClass().addClass("fa fa-close");
         $("#headerTitle").html("New Post");
     });
 
-    $("#like").on('click touchstart', function () {
+    $("#like").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("#like_btn").toggleClass("fa-heart-o").toggleClass("fa-heart");
     });
 
@@ -134,16 +147,17 @@ $(document).ready(function () {
     /*alternative way of uploading a picture*/
     
     
-    $('.photosThisWeek').on('click touchstart', function(){
+    $('.photosThisWeek').on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("body").removeClass().addClass("photos_this_week");
         $("#headerTitle").text("Photos from this week");
         $("#lefticon").removeClass("fa-navicon").addClass("fa fa-chevron-left");
     })
     
     var template = Handlebars.compile($("#test-template").html());
-    var url = "../images/"
+    var url = "images/"
     
-    for (var i = 0; i < 23; i+=6) {
+    for (var i = 1; i < 23; i+=6) {
         var obj = {
             id:33,
             image1:url+(i)+".jpg",
@@ -158,11 +172,13 @@ $(document).ready(function () {
         $(".column").append(html);
     }
     
-    $(".socialm_btn").on('click touchstart', function(){
+    $(".socialm_btn").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         console.log("tapping social media buttons");
         $(this).toggleClass("btn_on");
     })
-    $('#comment_btn').on('click touchstart', function(){
+    $('#comment_btn').on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         if (!sliderOn) {
             return;
         }
@@ -176,7 +192,8 @@ $(document).ready(function () {
         }
     });
     
-    $("#capadoccia").on('click touchstart', function(){
+    $("#capadoccia").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         console.log("Capadoccia clicked on!");
         markerCallbacks[1]();
     });
@@ -186,30 +203,40 @@ $(document).ready(function () {
         $('.filter_dialogue').toggle();
     });*/
     var filteropen;
-    $('#filter').on('click touchstart','.filter_disabled', function(){                
+    $('#filter').on('click touchstart','.filter_tag_disabled', function(e){
+    e.stopPropagation(); e.preventDefault();              
         $('.filter_dialogue').css('display','block');
-        $(this).removeClass('filter_disabled').addClass('filter_selected');
+        $(this).removeClass('filter_tag_disabled').addClass('filter_selected');
         filteropen = true;
     })
     
-    $('#filter').on('click touchstart','.filter_selected', function(){                         if (filteropen){
+    $('#filter').on('click touchstart','.filter_selected', function(e){
+    e.stopPropagation(); e.preventDefault();
+        if (filteropen){
             $('.filter_dialogue').css('display','none');
-            $(this).removeClass('filter_selected').addClass('filter_disabled');}
+            $(this).removeClass('filter_selected').addClass('filter_tag_disabled');}
+    })
+    
+    $("#filter").on('click touchstart', ".filter_dialogue", function(e){
+       e.stopPropagation(); e.preventDefault();
+       $(this).css('display','none');
+    $('.filter_selected').removeClass('filter_selected').addClass('filter_tag_disabled');
     })
     
     
-    $('.tag_container').on('click touchstart','.tag_inactive', function(){
-        $(this).removeClass('tag_inactive');
+    $('.tag_container').on('click touchstart','.tag_inactive', function(e){
+    e.stopPropagation(); e.preventDefault();
         $(this).addClass('tag_active');
     })
     
-    $('.tag_container').on('click touchstart','.tag_active', function(){
+    $('.tag_container').on('click touchstart','.tag_active', function(e){
+    e.stopPropagation(); e.preventDefault();
         $(this).removeClass('tag_active');
         $(this).addClass('tag_inactive');
     });
 
     
-    var text_max = 99;
+    var text_max = 140;
     $('#textarea_feedback').html(text_max + ' characters remaining');
 
     $('.create_post_textarea').keyup(function() {
@@ -220,7 +247,8 @@ $(document).ready(function () {
     });
     
     
-    $(".button_bottom").on('click touchstart', function(){
+    $(".button_bottom").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
         $("body").removeClass().addClass("map_fullsize");
         $("html, body").animate({scrollTop:0}, 500);
         $("#makePost").css('display','none');
@@ -234,10 +262,10 @@ $(document).ready(function () {
             }
     })
     
-    $(".start").on('click touchstart', function(){
+   /* $(".start").on('click touchstart', function(){
         //$("html, body").scrollTo(0,0);
         $("html, body").animate({scrollTop:0}, 500);
-    })
+    })*/
     
     //Navigation Code
     
