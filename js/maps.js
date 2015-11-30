@@ -28,15 +28,6 @@ var styles = [
     },
     {
         "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
         "elementType": "labels.text.fill",
         "stylers": [
             {

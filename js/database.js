@@ -20,7 +20,7 @@ var markers = [
       "postImages":["images/2.jpg"],
       "postComment":"This balloon ride is an amazing experience! Turkey at its best!"
    },
-   {
+    {
       "name":"James",
       "latitude":"21.478409",
       "longitude":"-157.994109",

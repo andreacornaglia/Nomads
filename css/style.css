@@ -88,6 +88,10 @@ body.map_fullsize #map {
     height: 100%;
 }
 
+body.friendBody #map {
+    height: 200px !important;
+    z-index: 1;
+}
 
 
 body.map-top #map, body.open-post #map{
@@ -471,6 +475,11 @@ li{
     margin-left: 30px;
 }
 
+.fa-search {
+    color: #FF7881;
+    margin-right: 10px;
+}
+
 .dropdown ul li{
     padding: 10px 30px;
     border-bottom: 1px solid #13475A;
@@ -496,7 +505,7 @@ li{
 
 #menu{
     display:none;
-    background: rgba(0,66,91,.95);
+    background: rgba(179,235,227,.95);
     font-size: 20px;
     height: 100%;
 }
@@ -507,8 +516,8 @@ body.body-menu #menu{
 }
 
 body.body-menu #header{
-    color:white;
-    background-color: rgba(0,66,91,.95);
+    color:#13475A;
+    background-color: rgba(179,235,227,.95);
 }
 
 body.map-top #homePage, body.map-top #lefticon, body.map #homePage{
@@ -525,8 +534,8 @@ body.map-top #homePage, body.map-top #lefticon, body.map #homePage{
     padding-bottom: 20px;
     margin-left: 30px;
     width: 80%;
-    color: white;
-    border-bottom: 1px solid white;
+    color: #13475A;
+    border-bottom: 1px solid #13475A;
 }
 
 #profilePage{
@@ -618,6 +627,14 @@ body.start #homePage{
 #capadoccia{
     float: left;
     background-image: url(../images/ist1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#capadoccia3{
+    float: left;
+    background-image: url(../images/4.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1053,7 +1070,7 @@ body.open_post #markerPopup{
     padding: 0;
 }
 
-#filter{
+#filter, #filter_friend{
     display: none;
     width: 100%;
     position: relative;
@@ -1106,7 +1123,7 @@ body.open_post #markerPopup{
 }
 
 .filter_box_container{
-        width: 100%;
+    width: 100%;
     float: left;
     padding: 15px;
     box-sizing: border-box;
@@ -1114,10 +1131,32 @@ body.open_post #markerPopup{
 
 .filter_box{
     float: left;
-    width: 160px;
+    width: 150px;
     padding: 10px;
     font-size: 14px;
     text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+    background: white;
+    color:#13475A;
+    text-transform: uppercase;
+}
+
+#friends{
+    background: url('../images/friends.png');
+    background-size: cover;
+    background: url('../images/friends.png');
+    background-size: contain;
+    width: 100%;
+    height: 800px;
+    margin-top: 10px;
+}
+
+.filter_box_friend {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
     box-sizing: border-box;
     display: inline-block;
     background: white;
@@ -1204,6 +1243,14 @@ body.open_post #markerPopup{
 #header_menu li {
     float: left;
     margin-left: 30px;
+}
+
+#friend_top{
+    display: none;
+    width: 100%;
+    height: 240;
+    background: url('../images/friend_top.png');
+    background-size: contain;
 }
 
 @media screen and (min-width: 1000px) {

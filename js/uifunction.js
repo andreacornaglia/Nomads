@@ -53,13 +53,31 @@ $(document).ready(function () {
     $("#menu").on('click touchstart', function(e){
     e.stopPropagation(); e.preventDefault();
         $(this).css('display', 'none');
+        $("#header").css('background', '#13475A');
+        $("#header").css('color', 'white');
+        $("#headerTitle").html('friends');
+        $("#lefticon").removeClass().addClass("fa fa-navicon");
+        $("#righticon").addClass("fa fa-plus");
+        $("#filter_friend").css('display','block');
+        $("#friends").css('display','block');
     });
+    
 
     $("#postUserImage").on('click touchstart', function(e){
     e.stopPropagation(); e.preventDefault();
         $("#profilePage").css('display', 'block');
         $("#profilePage").css('z-index', '10000000');
-
+    });
+    
+    $("#friends").on('click touchstart', function(e){
+        e.stopPropagation(); e.preventDefault();
+        $("#friends").css('display', 'none');
+        $("body").removeClass().addClass('friendBody');
+        $("#friendPage").css('display', 'block');
+        $("#friend_top").css('display', 'block');
+        $("#map").css('display', 'block');
+        $("#header").css('display', 'none');
+        $("#friendsPage").css('z-index', '10000000');
     });
 
     $(".start").on('click touchstart', '#map', function(e){
@@ -148,11 +166,22 @@ $(document).ready(function () {
     
     
     $('.photosThisWeek').on('click touchstart', function(e){
-    e.stopPropagation(); e.preventDefault();
+        e.stopPropagation(); e.preventDefault();
         $("body").removeClass().addClass("photos_this_week");
         $("#headerTitle").text("Photos from this week");
         $("#lefticon").removeClass("fa-navicon").addClass("fa fa-chevron-left");
     })
+    
+    /*back navigation for photos this week is not working!*/
+    
+/*    $('.photos_this_week').on('click touchstart', function(e){
+        alert("clicking the back arrow");
+        e.stopPropagation(); e.preventDefault();
+        $("body").removeClass().addClass("start");
+        $("#headerTitle").text("Nomads");
+        $("#lefticon").removeClass().addClass("fa fa-navigation");
+        $("#righticon").addClass("fa fa-plus");
+    })*/ 
     
     var template = Handlebars.compile($("#test-template").html());
     var url = "images/"
@@ -257,7 +286,9 @@ $(document).ready(function () {
                 initMap(true);
                 window.mapObject.setZoom(2);
                 $("#header").removeClass().addClass("transparent");
+                $("#headerTitle").html('trips');
                 $("#lefticon").removeClass().addClass("fa fa-chevron-left");
+                $("#righticon").removeClass();
                 isMapFullsize = true;
             }
     })
