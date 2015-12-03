@@ -49,7 +49,7 @@ var markers = [
       "postDate":"8h ago",
       "postImages":["images/chl1.jpg", "images/chl2.jpg", "images/chl3.jpg"],
        "postComment":"Santiago is a small big city. Cute and modern."
-   }/*,
+   },
     {
       "name":"Rita",
       "latitude":"40",
@@ -199,5 +199,5 @@ var markers = [
       "postDate":"8h ago",
       "postImages":["images/chl1.jpg", "images/chl2.jpg", "images/chl3.jpg"],
        "postComment":"Santiago is a small big city. Cute and modern."
-   }*/
+   }
 ]

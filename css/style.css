@@ -134,15 +134,17 @@ body.map-top #makePost, body.open-post #markerPopup{
 .lefticon, .righticon {
     width: 10%;
     height: 60px;
-    float: left;
+    
 }
 
 .lefticon {
     text-align: left;
+    float: left;
 }
 
 .righticon {
     text-align: right;
+    float: right;
 }
 
 .start #header{
@@ -1232,11 +1234,10 @@ body.open_post #markerPopup{
 
 #header_menu {
     display: none;
-    width: 300px;
-    float: left;
-    margin-left: 580px;
+    float: right;
     text-transform: capitalize;
     font-size: 16px;
+    margin-right: 20px;
 }
 
 #header_menu li {
@@ -1253,16 +1254,22 @@ body.open_post #markerPopup{
 }
 
 @media screen and (min-width: 1000px) {
-    .start #header #filter, .map_fullsize #header #filter{
+    #filter_b{
+        display: block;
+    }
+    .start #header #filter{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+    .map_fullsize #header #filter{
         display: none;
     }
     
     body.open_post #header, body.map-top #header{
         background: rgba(17,71,90,.75);
-    }
-    
-    #filter_b{
-        display: block;
     }
     
     #header_menu {
@@ -1281,6 +1288,10 @@ body.open_post #markerPopup{
     #lefticon {
         display: none;
     }
+    .righticon{
+        width: auto;
+    }
+    
     #headerTitle{
         text-transform: capitalize;
         text-align: left;
