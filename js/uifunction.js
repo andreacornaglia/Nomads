@@ -221,10 +221,16 @@ $(document).ready(function () {
         }
     });
     
-    $("#capadoccia").on('click touchstart', function(e){
+    $("#capadoccia3").on('click touchstart', function(e){
     e.stopPropagation(); e.preventDefault();
         console.log("Capadoccia clicked on!");
+        $("#friend_top").css('display','none');
+        $('#filter_friend').css('display','none');
+        $('#friendPage').css('display','none');
+        $('#header').css('display','block');
+        $('#header').css('background','transparent');
         markerCallbacks[1]();
+        
     });
     
     
@@ -300,6 +306,13 @@ $(document).ready(function () {
     
     //Navigation Code
     
+    $(".open_post").on('click touchstart', '#lefticon', function(e){
+        //e.stopPropagation(); e.preventDefault();
+        console.log("navigation!");
+       /* $("body").removeClass().addClass("body-menu");
+        $("#lefticon").removeClass().addClass("fa fa-close");
+        $("#righticon").addClass('fa fa-plus');*/
+    });
     
     
 });
