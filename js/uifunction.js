@@ -113,6 +113,11 @@ $(document).ready(function () {
     e.stopPropagation(); e.preventDefault();
         $("#like_btn").toggleClass("fa-heart-o").toggleClass("fa-heart");
     });
+    
+    $("#bookmark").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
+        $("#bookmark_btn").toggleClass("fa-bookmark-o").toggleClass("fa-bookmark");
+    });
 
 
     /*uploading multiple images*/
@@ -236,7 +241,7 @@ $(document).ready(function () {
     
     /*$('#filter').on('click touchstart', function(){
         $('.filter_dialogue').toggle();
-    });*/
+    });
     var filteropen;
     $('#filter').on('click touchstart','.filter_tag_disabled', function(e){
     e.stopPropagation(); e.preventDefault();              
@@ -269,7 +274,11 @@ $(document).ready(function () {
         $(this).removeClass('tag_active');
         $(this).addClass('tag_inactive');
     });
-
+*/
+     $(".tag_container_b").on('click touchstart','.tag', function(e){
+    e.stopPropagation(); e.preventDefault();
+        $(".tag").toggleClass("tag_inactive").toggleClass("tag_active");
+    });
     
     var text_max = 140;
     $('#textarea_feedback').html(text_max + ' characters remaining');
@@ -297,8 +306,15 @@ $(document).ready(function () {
                 $("#righticon").removeClass();
                 isMapFullsize = true;
             }
+        $(".message_alert_box").css('display', 'block');
+        stopMessage();
     })
     
+    function stopMessage(){
+        setTimeout(function(){
+            $(".message_alert_box").css('display', 'none');
+        }, 3000)
+    }
    /* $(".start").on('click touchstart', function(){
         //$("html, body").scrollTo(0,0);
         $("html, body").animate({scrollTop:0}, 500);

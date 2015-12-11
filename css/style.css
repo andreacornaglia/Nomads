@@ -53,6 +53,10 @@ body.start #header, body.map_fullsize #header, .photos_this_week #header {
     color:white;
 }
 
+body.start .noti_dot{
+    display: block;
+}
+
 
 body.open_post #header, body.map-top #header{
    position: absolute;
@@ -68,6 +72,27 @@ body.open_post #header, body.map-top #header{
 body.start .header_main {
     height: 60px;
     line-height: 60px;
+}
+
+body.map_fullsize {
+    position: relative;
+    height: 100%;
+}
+
+.message_alert_box {
+    display: none;
+    width: 90%;
+    background: white;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 12px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.message_alert_box span{
+    color:#FF7881;
 }
 
 
@@ -280,16 +305,22 @@ li{
     margin: auto 5px;
 }
 
-#likec_tags, #like, #comment{
-	width:30%;
+#likec_tags, .lcb{
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+
+#likec_tags, #like, #comment, #bookmark{
 	margin:0;
-	padding:10px 0;
+	padding: 10px 8px;
     box-sizing: border-box;
 	float:left;
 	text-align: center;
 }
 
-#like, #comment {
+#like, #comment, #bookmark {
     text-align: right;
     font-size: 18px;
     line-height: 35px;
@@ -593,15 +624,17 @@ body.start #homePage{
 .foto_description{
     padding: 0 0 0 20px;
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     float: left;
-    width: 230px;
+    width: 220px;
     font-family: "montserratlight";
 }
 
 #thisweek_content{
     width: 100%;
 }
+
+
 
 #thisweek_title{
     width: 100%;
@@ -828,6 +861,9 @@ body.start #homePage{
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
 
 
 body.map-top #map {
@@ -846,6 +882,19 @@ body.open_post #markerPopup{
 .carrousel {
     width: 100%;
     height: 120px;
+}
+
+.notifi{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    background-color: #FF7881;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    float: right;
+    font-size: 16px;
 }
 
 
@@ -914,6 +963,22 @@ body.open_post #markerPopup{
     width: 290px;
     margin-left: 30px;
 }
+
+.lefticon {
+    position: relative;
+}
+
+.noti_dot {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #FF7881;
+}
+
 
 #post_info{
     width:100%;
@@ -1248,8 +1313,8 @@ body.open_post #markerPopup{
 #friend_top{
     display: none;
     width: 100%;
-    height: 266;
-    background: url('../images/friend_top.png');
+    height: 255;
+    background: url('../images/friend_top2.png');
     background-size: contain;
 }
 
@@ -1310,6 +1375,6 @@ body.open_post #markerPopup{
     }
     
     body.start #map {
-        height: 400px !important;
+        height: 300px !important;
     }
 }

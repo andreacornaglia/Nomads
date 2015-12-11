@@ -39,7 +39,7 @@
         <div class="header_main">
           <div class="lefticon">
               <i class="fa fa-navicon" id="lefticon"></i>
-              <img src="favicons/desktop_nav.png" id="nomads_icon">
+              <div class="noti_dot"></div>
           </div>
           <h1 id="headerTitle">Nomads</h1>
           <div class="righticon"><i id="righticon" class="fa fa-plus"></i></div>
@@ -138,8 +138,12 @@
 
     <div id="menu">
         <ul id="menu_list">
+            <li>Notification
+                <a href="#"></a>
+                <span class="notifi">1</span>
+            </li>
             <li>Trending
-                <a href="#map"></a>
+                <a href="#"></a>
             </li>
             <li>Trips
                 <a href="#"></a>
@@ -206,8 +210,17 @@
                 <img class="small_tag" src="images/tag2.png">
                 <img class="small_tag" src="images/tag6.png">
             </div>
-            <div id="like"><i id="like_btn" class="fa fa-heart-o">&nbsp;&nbsp;&nbsp;</i>13</div>
-            <div id="comment"><i id="comment_btn" class="fa fa-comment-o">&nbsp;&nbsp;&nbsp;</i>2</div>
+            <div class="lcb">
+                <div id="like">
+                    <i id="like_btn" class="fa fa-heart-o">&nbsp;&nbsp;&nbsp;</i>
+                    13
+                </div>
+                <div id="comment">
+                    <i id="comment_btn" class="fa fa-comment-o">&nbsp;&nbsp;&nbsp;</i>2</div>
+                <div id="bookmark">
+                    <i id="bookmark_btn" class="fa fa-bookmark-o"></i>&nbsp;
+                </div>
+            </div>
         </div>
         <div class="carrousel">
             <div class="comment_item">
@@ -342,6 +355,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="message_alert_box">
+    Your trip was successfully uploaded! <span>see post</span>
     </div>
     <!--Scripts-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
