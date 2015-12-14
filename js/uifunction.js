@@ -50,9 +50,9 @@ $(document).ready(function () {
     });
 
 
-    $("#menu").on('click touchstart', function(e){
+    $("#menuOptionFriends").on('click touchstart', function(e){
     e.stopPropagation(); e.preventDefault();
-        $(this).css('display', 'none');
+        $("#menu").css('display', 'none');
         $("#header").css('background', '#13475A');
         $("#header").css('color', 'white');
         $("#headerTitle").html('friends');
@@ -61,6 +61,17 @@ $(document).ready(function () {
         $("#filter_friend").css('display','block');
         $("#friends").css('display','block');
     });
+    
+    
+    $("#menuOptionNotif").on('click touchstart', function(e){
+    e.stopPropagation(); e.preventDefault();
+        console.log("Capadoccia clicked on!");
+        $("#menu").css('display', 'none');
+        $('#header').css('display','block');
+        $('#header').css('background','transparent');
+        markerCallbacks[1]();   
+    });
+    
     
 
     $("#postUserImage").on('click touchstart', function(e){
@@ -76,11 +87,14 @@ $(document).ready(function () {
         $("#friendPage").css('display', 'block');
         $("#friend_top").css('display', 'block');
         $("#map").css('display', 'block');
-        $("#header").css('display', 'none');
+        $("#lefticon").removeClass().addClass("fa fa-chevron-left");
+        $("#righticon").removeClass().addClass("fa fa-star-o righticonstar");
+       /* $("#header").css('display', 'none');*/
         $("#friendsPage").css('z-index', '10000000');
     });
 
     $(".start").on('click touchstart', '#map', function(e){
+        
     e.stopPropagation(); e.preventDefault();
         $("#homePage").css("display", "none");
         
@@ -100,13 +114,19 @@ $(document).ready(function () {
         $("#lefticon").removeClass().addClass("fa fa-close");
         $("#righticon").removeClass();
     });
-
-    $("body").on('click touchstart', '#righticon', function(e){
+    
+     $("body").on('click touchstart', '.fa-plus', function(e){
     e.stopPropagation(); e.preventDefault();
         centerMap();
         $("body").removeClass("start").addClass("map-top");
         $("#righticon").removeClass().addClass("fa fa-close");
         $("#headerTitle").html("New Post");
+     });
+    
+    
+    $("body").on('click touchstart','.righticonstar', function(e){
+        e.stopPropagation(); e.preventDefault();
+        $(this).removeClass().addClass("fa fa-star");
     });
 
     $("#like").on('click touchstart', function(e){
@@ -234,12 +254,11 @@ $(document).ready(function () {
         $('#friendPage').css('display','none');
         $('#header').css('display','block');
         $('#header').css('background','transparent');
-        markerCallbacks[1]();
-        
+        markerCallbacks[1]();   
     });
     
     
-    /*$('#filter').on('click touchstart', function(){
+    $('#filter').on('click touchstart', function(){
         $('.filter_dialogue').toggle();
     });
     var filteropen;
@@ -263,7 +282,7 @@ $(document).ready(function () {
     $('.filter_selected').removeClass('filter_selected').addClass('filter_tag_disabled');
     })
     
-    
+    /*
     $('.tag_container').on('click touchstart','.tag_inactive', function(e){
     e.stopPropagation(); e.preventDefault();
         $(this).addClass('tag_active');
@@ -274,11 +293,17 @@ $(document).ready(function () {
         $(this).removeClass('tag_active');
         $(this).addClass('tag_inactive');
     });
-*/
+
      $(".tag_container_b").on('click touchstart','.tag', function(e){
     e.stopPropagation(); e.preventDefault();
         $(".tag").toggleClass("tag_inactive").toggleClass("tag_active");
     });
+    */
+    
+     $('.tag_container').on('click touchstart','.tag_2', function(e){
+    e.stopPropagation(); e.preventDefault();
+        $(this).toggleClass("tag_inactive").toggleClass("tag_active");
+    })
     
     var text_max = 140;
     $('#textarea_feedback').html(text_max + ' characters remaining');
@@ -308,6 +333,11 @@ $(document).ready(function () {
             }
         $(".message_alert_box").css('display', 'block');
         stopMessage();
+    })
+    
+    $(".tag_landmark").on('click touchstart', function(e){
+        initMap(true, true);
+        window.mapObject.setZoom(2);
     })
     
     function stopMessage(){

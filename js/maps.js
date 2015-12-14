@@ -285,7 +285,8 @@ function getLocation() {
 
 
 /*load map with markers*/
-function initMap(showPhotos) {
+/*if filterMarkers is true, only a subset of markers are shown*/
+function initMap(showPhotos, filterMarkers) {
     //defines map styling ; this one was created by using ...
     
     //adding the styling settings to our map    
@@ -313,8 +314,13 @@ function initMap(showPhotos) {
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
-
-    for (i = 0; i < markers.length; i++) {
+    
+    var markersCount = markers.length;
+    
+    if (filterMarkers) {
+        markersCount = 5;
+    }
+    for (i = 0; i < markersCount; i++) {
         var image = {
             url: markers[i].profileImage,
             scaledSize: new google.maps.Size(40, 40), // scaled size
