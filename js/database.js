@@ -27,8 +27,8 @@ var markers = [
       "place":"Hawaii, US",
       "profileImage":"images/james.png",
       "postDate":"5h ago",
-      "postImages":["images/hw1.jpg","images/hw2.jpg","images/hw3.jpg"],
-       "postComment":"Colors from Hawaii"
+      "postImages":["images/hw2.jpg","images/hw3.jpg"],
+       "postComment":"Haiking in the volcano park is a must in Hawaii!"
    },
    {
        "name":"Charles",
